@@ -3,251 +3,158 @@
 import Link from "next/link";
 import {
   ArrowLeft,
-  ShieldCheck,
-  CreditCard,
-  Building2,
-  Heart,
-  FileCheck,
-  Smartphone,
-  Monitor,
-  Wifi,
-  CheckCircle,
-  Lock,
-  User,
   ArrowRight,
   ArrowDown,
+  ShieldCheck,
+  Building2,
+  Heart,
+  CheckCircle,
+  User,
 } from "lucide-react";
 
 const auditEntries = [
-  { id: "TXN-20260325-0847", time: "8:47 AM", recipient: "Daily Bread Food Bank", status: "Verified" },
-  { id: "TXN-20260325-0832", time: "8:32 AM", recipient: "Second Harvest", status: "Verified" },
-  { id: "TXN-20260325-0819", time: "8:19 AM", recipient: "Daily Bread Food Bank", status: "Verified" },
-  { id: "TXN-20260325-0801", time: "8:01 AM", recipient: "North York Harvest", status: "Verified" },
-  { id: "TXN-20260325-0748", time: "7:48 AM", recipient: "Second Harvest", status: "Verified" },
+  { id: "TXN-20260325-0847", time: "8:47 AM", amount: "$0.10", recipient: "Daily Bread Food Bank", receipt: "TR-847291" },
+  { id: "TXN-20260325-0832", time: "8:32 AM", amount: "$0.10", recipient: "Second Harvest", receipt: "TR-832104" },
+  { id: "TXN-20260325-0819", time: "8:19 AM", amount: "$0.10", recipient: "Daily Bread Food Bank", receipt: "TR-819473" },
+  { id: "TXN-20260325-0801", time: "8:01 AM", amount: "$0.10", recipient: "North York Harvest", receipt: "TR-801055" },
+  { id: "TXN-20260325-0748", time: "7:48 AM", amount: "$0.10", recipient: "Second Harvest", receipt: "TR-748392" },
 ] as const;
 
 export default function HowItWorksPage() {
   return (
     <div className="min-h-dvh px-6 py-10 md:px-12">
-      {/* Top nav */}
+      {/* Nav */}
       <div className="flex items-center justify-between">
         <Link
           href="/account"
           className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
         >
           <ArrowLeft size={16} />
-          Back to demo
+          Back
         </Link>
         <Link
           href="/compare"
-          className="flex items-center gap-2 text-sm text-dime-teal transition-colors hover:text-dime-teal/80"
+          className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
         >
-          Side-by-side comparison
+          Side-by-side demo
           <ArrowRight size={14} />
         </Link>
       </div>
 
-      {/* Hero */}
-      <div className="mt-12 text-center">
+      {/* Hero — the one question this page answers */}
+      <div className="mx-auto mt-16 max-w-2xl text-center">
         <p className="text-xs font-semibold tracking-widest text-dime-teal">DIMETECH</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-          How the money flows
+        <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+          Where does the 11¢ go?
         </h1>
-        <p className="mx-auto mt-3 max-w-lg text-base text-white/40">
-          Every transaction is automatically split, routed to certified charities,
-          and logged with a complete audit trail — zero merchant effort.
+        <p className="mx-auto mt-3 max-w-md text-base text-white/40">
+          Every cent is tracked, verified, and receipted automatically.
         </p>
       </div>
 
-      {/* ── FLOWCHART ────────────────────────────────── */}
-      <div className="mx-auto mt-14 max-w-3xl">
-        {/* Row 1: Customer → DIMETECH */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto_1fr]">
-          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
-              <User size={22} />
-            </div>
-            <div>
-              <p className="font-semibold">Customer Places Order</p>
-              <p className="mt-0.5 text-sm text-white/40">$18.73 total charged at checkout</p>
-            </div>
-          </div>
+      {/* ── THE FLOW ─────────────────────────────────── */}
+      <div className="mx-auto mt-14 max-w-sm">
 
-          <div className="hidden items-center md:flex">
-            <div className="h-px w-12 bg-white/15" />
-            <ArrowRight size={16} className="text-white/15" />
-          </div>
-          <div className="flex items-center justify-center md:hidden">
-            <ArrowDown size={16} className="text-white/15" />
-          </div>
+        {/* Customer */}
+        <div className="rounded-2xl border border-white/10 bg-surface p-5 text-center">
+          <User size={24} className="mx-auto text-white/60" />
+          <p className="mt-2 text-lg font-bold">$18.73</p>
+          <p className="text-sm text-white/40">Customer places order</p>
+        </div>
 
-          <div className="flex items-center gap-4 rounded-2xl border border-dime-teal/30 bg-dime-teal/5 p-5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dime-teal/15">
-              <ShieldCheck size={22} className="text-dime-teal" />
-            </div>
-            <div>
-              <p className="font-semibold text-dime-teal">DIMETECH Layer</p>
-              <p className="mt-0.5 text-sm text-white/40">11¢ auto-separated at payment processing</p>
-            </div>
+        <div className="flex justify-center py-3">
+          <ArrowDown size={18} className="text-white/20" />
+        </div>
+
+        {/* DIMETECH splits */}
+        <div className="rounded-2xl border border-dime-teal/30 bg-dime-teal/5 p-5 text-center">
+          <ShieldCheck size={24} className="mx-auto text-dime-teal" />
+          <p className="mt-2 text-sm font-bold text-dime-teal">DIMETECH auto-separates 11¢</p>
+          <p className="text-xs text-white/30 mt-1">No merchant action. No customer prompt.</p>
+        </div>
+
+        {/* Split connector */}
+        <div className="relative h-10">
+          <div className="absolute left-1/2 top-0 h-3 w-px -translate-x-1/2 bg-white/15" />
+          <div className="absolute top-3 left-[20%] right-[20%] h-px bg-white/15" />
+          <div className="absolute left-[20%] top-3 h-7 w-px bg-dime-green/50" />
+          <div className="absolute right-[20%] top-3 h-7 w-px bg-white/10" />
+        </div>
+
+        {/* Two destinations */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-2xl border border-dime-green/30 bg-dime-green/5 p-4 text-center">
+            <Heart size={20} className="mx-auto text-dime-green" fill="#06C167" />
+            <p className="mt-2 text-xl font-bold text-dime-green">10¢</p>
+            <p className="mt-1 text-xs text-white/50">Food Bank</p>
+            <p className="mt-0.5 text-[10px] text-white/25">Direct secure transfer</p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-center">
+            <Building2 size={20} className="mx-auto text-white/30" />
+            <p className="mt-2 text-xl font-bold text-white/40">1¢</p>
+            <p className="mt-1 text-xs text-white/30">Operations</p>
+            <p className="mt-0.5 text-[10px] text-white/15">Compliance & audit</p>
           </div>
         </div>
 
-        {/* Connector down */}
-        <div className="flex justify-center py-4 md:justify-end md:pr-[22%]">
-          <ArrowDown size={16} className="text-white/15" />
+        {/* Merge back */}
+        <div className="relative h-8">
+          <div className="absolute left-[20%] top-0 h-3 w-px bg-dime-green/50" />
+          <div className="absolute right-[20%] top-0 h-3 w-px bg-white/10" />
+          <div className="absolute top-3 left-[20%] right-[20%] h-px bg-white/15" />
+          <div className="absolute left-1/2 top-3 h-5 w-px -translate-x-1/2 bg-white/15" />
         </div>
 
-        {/* Row 2: Split — two destinations */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-dime-green/30 bg-dime-green/5 p-6 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-dime-green/15">
-              <Heart size={24} className="text-dime-green" fill="#06C167" />
-            </div>
-            <p className="mt-4 text-2xl font-bold text-dime-green">$0.10</p>
-            <p className="mt-1 text-sm font-semibold">Certified Food Bank</p>
-            <p className="mt-2 text-xs text-white/40">
-              Routed directly via secure transfer to verified charitable partners
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5">
-              <Building2 size={24} className="text-white/40" />
-            </div>
-            <p className="mt-4 text-2xl font-bold text-white/50">$0.01</p>
-            <p className="mt-1 text-sm font-semibold text-white/50">Platform Operations</p>
-            <p className="mt-2 text-xs text-white/30">
-              Compliance, audit infrastructure, and platform maintenance
-            </p>
-          </div>
-        </div>
-
-        {/* Connector down */}
-        <div className="flex justify-center py-4">
-          <ArrowDown size={16} className="text-white/15" />
-        </div>
-
-        {/* Row 3: Outputs — Audit + ESG */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="flex items-center gap-4 rounded-2xl border border-dime-teal/20 bg-surface p-5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-dime-teal/10">
-              <FileCheck size={22} className="text-dime-teal" />
-            </div>
-            <div>
-              <p className="font-semibold">Immutable Audit Trail</p>
-              <p className="mt-0.5 text-sm text-white/40">Every cent logged with timestamp, recipient & receipt ID</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface p-5">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10">
-              <CreditCard size={22} className="text-white/60" />
-            </div>
-            <div>
-              <p className="font-semibold">Automated ESG Reports</p>
-              <p className="mt-0.5 text-sm text-white/40">Monthly reports generated for merchant compliance</p>
-            </div>
-          </div>
+        {/* Receipt */}
+        <div className="rounded-2xl border border-white/10 bg-surface p-5 text-center">
+          <CheckCircle size={24} className="mx-auto text-dime-green" />
+          <p className="mt-2 text-sm font-bold">Tax receipt issued</p>
+          <p className="text-xs text-white/30">Timestamped, immutable, independently verifiable</p>
         </div>
       </div>
 
-      {/* ── LIVE AUDIT TRAIL ─────────────────────────── */}
-      <div className="mx-auto mt-16 max-w-3xl">
+      {/* ── THE PROOF ────────────────────────────────── */}
+      <div className="mx-auto mt-16 max-w-2xl">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">Live Audit Trail</h2>
+          <h2 className="text-lg font-bold">The proof</h2>
           <div className="flex items-center gap-1.5">
             <div className="h-2 w-2 animate-pulse rounded-full bg-dime-green" />
             <span className="text-xs text-dime-green">Live</span>
           </div>
         </div>
+        <p className="mt-1 text-sm text-white/30">
+          Every transaction generates a verifiable record. Here are the last 5.
+        </p>
+
         <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-surface">
-          <div className="flex items-center border-b border-white/5 px-5 py-3 text-xs font-semibold text-white/30">
-            <span className="w-[180px]">Transaction ID</span>
-            <span className="w-[80px]">Time</span>
+          <div className="flex items-center border-b border-white/5 px-5 py-3 text-xs font-semibold text-white/25">
+            <span className="w-[160px]">Transaction</span>
+            <span className="w-[60px]">Time</span>
             <span className="flex-1">Recipient</span>
-            <span className="w-[80px] text-right">Status</span>
+            <span className="w-[90px] text-right">Tax Receipt</span>
           </div>
           {auditEntries.map((entry) => (
             <div
               key={entry.id}
-              className="flex items-center border-b border-white/5 px-5 py-3.5 last:border-0"
+              className="flex items-center border-b border-white/5 px-5 py-3 last:border-0"
             >
-              <span className="w-[180px] font-mono text-xs text-white/50">{entry.id}</span>
-              <span className="w-[80px] text-xs text-white/40">{entry.time}</span>
-              <span className="flex-1 text-sm text-white/70">{entry.recipient}</span>
-              <span className="flex w-[80px] items-center justify-end gap-1.5 text-xs font-medium text-dime-green">
-                <CheckCircle size={12} />
-                {entry.status}
+              <span className="w-[160px] font-mono text-xs text-white/40">{entry.id}</span>
+              <span className="w-[60px] text-xs text-white/35">{entry.time}</span>
+              <span className="flex-1 text-sm text-white/60">{entry.recipient}</span>
+              <span className="flex w-[90px] items-center justify-end gap-1.5 text-xs text-dime-green">
+                <CheckCircle size={11} />
+                {entry.receipt}
               </span>
             </div>
           ))}
         </div>
-        <p className="mt-3 text-center text-xs text-white/25">
-          142,300 transactions verified this month
+        <p className="mt-3 text-center text-xs text-white/20">
+          142,300 verified transactions this month
         </p>
       </div>
 
-      {/* ── SECURITY + POS ───────────────────────────── */}
-      <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
-        {/* Security */}
-        <div className="rounded-2xl border border-white/10 bg-surface p-6">
-          <Lock size={20} className="text-dime-teal" />
-          <h3 className="mt-3 text-base font-bold">Bank-Grade Security</h3>
-          <p className="mt-2 text-sm text-white/40">
-            End-to-end encryption, immutable audit logs, and independently verifiable
-            transaction records. Tax receipts generated automatically.
-          </p>
-        </div>
-
-        {/* POS Integration */}
-        <div className="rounded-2xl border border-white/10 bg-surface p-6">
-          <ShieldCheck size={20} className="text-dime-teal" />
-          <h3 className="mt-3 text-base font-bold">Works With Any POS</h3>
-          <p className="mt-2 text-sm text-white/40">
-            No hardware changes required. One SDK integration.
-          </p>
-          <div className="mt-4 space-y-2">
-            {[
-              { icon: Smartphone, label: "Mobile Apps", detail: "Uber Eats, DoorDash, SkipTheDishes" },
-              { icon: Monitor, label: "Web Checkout", detail: "Any e-commerce platform" },
-              { icon: Wifi, label: "In-Store POS", detail: "Square, Toast, Clover, Lightspeed" },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className="flex items-center gap-3">
-                  <Icon size={14} className="shrink-0 text-white/30" />
-                  <span className="text-xs text-white/50">
-                    <span className="font-medium text-white/70">{item.label}</span> — {item.detail}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* ── 3-STEP INTEGRATION ───────────────────────── */}
-      <div className="mx-auto mt-16 max-w-3xl text-center">
-        <h2 className="text-lg font-bold">Integration in 3 Steps</h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-          {[
-            { num: "1", title: "Add SDK", desc: "One line of code in your checkout" },
-            { num: "2", title: "Auto-Split", desc: "11¢ separated at the payment layer" },
-            { num: "3", title: "Reports Flow", desc: "Charities funded, merchant gets ESG data" },
-          ].map((step) => (
-            <div key={step.num} className="rounded-2xl border border-dime-teal/20 bg-dime-teal/5 p-5">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-dime-teal/20 text-lg font-bold text-dime-teal">
-                {step.num}
-              </div>
-              <p className="mt-3 font-semibold text-dime-teal">{step.title}</p>
-              <p className="mt-1 text-xs text-white/40">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div className="mx-auto mt-16 max-w-3xl text-center">
+      {/* Bottom CTA */}
+      <div className="mx-auto mt-16 max-w-2xl text-center">
         <Link
           href="/"
           className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-bold text-black transition-transform active:scale-95"
