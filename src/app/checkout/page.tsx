@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ArrowLeft, CreditCard, Apple, ChevronRight, MapPin, Clock } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { DIME_AID_FEE, restaurants } from "@/lib/data";
+import { DIME_AID_FEE, restaurants, groceryStores } from "@/lib/data";
 import OrderSummary from "@/components/OrderSummary";
 import { useState } from "react";
 
@@ -18,7 +18,8 @@ export default function CheckoutPage() {
   const { items, restaurantId, restaurantName, subtotal, clearCart } = useCart();
   const [selectedPayment, setSelectedPayment] = useState("apple-pay");
 
-  const restaurant = restaurants.find((r) => r.id === restaurantId);
+  const allStores = [...restaurants, ...groceryStores];
+  const restaurant = allStores.find((r) => r.id === restaurantId);
   const deliveryFee = restaurant?.deliveryFee ?? 2.99;
   const serviceFee = Math.round(subtotal * 0.05 * 100) / 100;
   const total = subtotal + deliveryFee + serviceFee + DIME_AID_FEE.total;

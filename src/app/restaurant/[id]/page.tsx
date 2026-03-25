@@ -3,7 +3,7 @@
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Star, Clock, Plus, Minus, Heart } from "lucide-react";
-import { restaurants } from "@/lib/data";
+import { restaurants, groceryStores } from "@/lib/data";
 import { useCart } from "@/context/CartContext";
 import DimeAidBadge from "@/components/DimeAidBadge";
 import { useState } from "react";
@@ -14,7 +14,8 @@ export default function RestaurantPage() {
   const { items, addItem, updateQuantity } = useCart();
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const restaurant = restaurants.find((r) => r.id === params.id);
+  const allStores = [...restaurants, ...groceryStores];
+  const restaurant = allStores.find((r) => r.id === params.id);
   if (!restaurant) return null;
 
   const getItemQuantity = (itemId: string) =>
@@ -78,7 +79,7 @@ export default function RestaurantPage() {
 
         {/* Menu */}
         <div className="space-y-3 pb-4">
-          <h2 className="text-lg font-bold">Menu</h2>
+          <h2 className="text-lg font-bold">{restaurant.type === "grocery" ? "Items" : "Menu"}</h2>
           {restaurant.menu.map((item) => {
             const qty = getItemQuantity(item.id);
             return (

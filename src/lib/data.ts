@@ -7,9 +7,12 @@ export interface MenuItem {
   readonly popular?: boolean;
 }
 
+export type StoreType = "restaurant" | "grocery";
+
 export interface Restaurant {
   readonly id: string;
   readonly name: string;
+  readonly type: StoreType;
   readonly image: string;
   readonly logo: string;
   readonly rating: number;
@@ -29,6 +32,7 @@ export const restaurants: readonly Restaurant[] = [
   {
     id: "pizza-hut",
     name: "Pizza Hut",
+    type: "restaurant",
     image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80",
     logo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&q=80",
     rating: 4.5,
@@ -85,6 +89,7 @@ export const restaurants: readonly Restaurant[] = [
   {
     id: "kfc",
     name: "KFC",
+    type: "restaurant",
     image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800&q=80",
     logo: "https://images.unsplash.com/photo-1513185158878-8d8c2a2a3da3?w=200&q=80",
     rating: 4.3,
@@ -141,6 +146,7 @@ export const restaurants: readonly Restaurant[] = [
   {
     id: "taco-bell",
     name: "Taco Bell",
+    type: "restaurant",
     image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=800&q=80",
     logo: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=200&q=80",
     rating: 4.1,
@@ -191,6 +197,123 @@ export const restaurants: readonly Restaurant[] = [
         description: "Light and crispy cinnamon sugar twists",
         price: 1.99,
         image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80",
+      },
+    ],
+  },
+];
+
+export const groceryStores: readonly Restaurant[] = [
+  {
+    id: "loblaws",
+    name: "Loblaws",
+    type: "grocery",
+    image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&q=80",
+    logo: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=200&q=80",
+    rating: 4.6,
+    deliveryTime: "30-45 min",
+    deliveryFee: 3.99,
+    categories: ["Produce", "Dairy", "Bakery"],
+    menu: [
+      {
+        id: "lb-1",
+        name: "Organic Bananas (bunch)",
+        description: "Fresh organic bananas, approximately 5-7 per bunch",
+        price: 2.49,
+        image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80",
+        popular: true,
+      },
+      {
+        id: "lb-2",
+        name: "2% Milk (2L)",
+        description: "Neilson 2% partly skimmed milk",
+        price: 4.99,
+        image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&q=80",
+        popular: true,
+      },
+      {
+        id: "lb-3",
+        name: "Sourdough Bread",
+        description: "Freshly baked artisan sourdough loaf",
+        price: 5.49,
+        image: "https://images.unsplash.com/photo-1585478259715-876acc5be8fc?w=400&q=80",
+      },
+      {
+        id: "lb-4",
+        name: "Free-Range Eggs (12pk)",
+        description: "Grade A large free-range eggs",
+        price: 6.99,
+        image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400&q=80",
+      },
+      {
+        id: "lb-5",
+        name: "Baby Spinach (312g)",
+        description: "Pre-washed organic baby spinach",
+        price: 4.49,
+        image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80",
+      },
+      {
+        id: "lb-6",
+        name: "Chicken Breast (1kg)",
+        description: "Fresh boneless skinless chicken breast",
+        price: 14.99,
+        image: "https://images.unsplash.com/photo-1604503468506-a8da13d82571?w=400&q=80",
+      },
+    ],
+  },
+  {
+    id: "metro",
+    name: "Metro",
+    type: "grocery",
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
+    logo: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&q=80",
+    rating: 4.4,
+    deliveryTime: "25-40 min",
+    deliveryFee: 2.99,
+    categories: ["Produce", "Meat", "Pantry"],
+    menu: [
+      {
+        id: "mt-1",
+        name: "Avocados (3pk)",
+        description: "Ripe and ready Hass avocados",
+        price: 5.99,
+        image: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&q=80",
+        popular: true,
+      },
+      {
+        id: "mt-2",
+        name: "Atlantic Salmon Fillet",
+        description: "Fresh Atlantic salmon, skin-on (per 200g)",
+        price: 8.99,
+        image: "https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=400&q=80",
+        popular: true,
+      },
+      {
+        id: "mt-3",
+        name: "Greek Yogurt (750g)",
+        description: "Plain 2% Greek yogurt",
+        price: 5.49,
+        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80",
+      },
+      {
+        id: "mt-4",
+        name: "Strawberries (454g)",
+        description: "Fresh sweet strawberries",
+        price: 4.99,
+        image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80",
+      },
+      {
+        id: "mt-5",
+        name: "Whole Wheat Pasta",
+        description: "Barilla whole grain penne (500g)",
+        price: 3.29,
+        image: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=400&q=80",
+      },
+      {
+        id: "mt-6",
+        name: "Extra Virgin Olive Oil",
+        description: "Premium cold-pressed EVOO (500ml)",
+        price: 9.99,
+        image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80",
       },
     ],
   },

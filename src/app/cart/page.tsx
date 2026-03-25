@@ -4,14 +4,15 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft, Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { DIME_AID_FEE, restaurants } from "@/lib/data";
+import { DIME_AID_FEE, restaurants, groceryStores } from "@/lib/data";
 import OrderSummary from "@/components/OrderSummary";
 
 export default function CartPage() {
   const router = useRouter();
   const { items, restaurantId, restaurantName, subtotal, updateQuantity, removeItem, clearCart } = useCart();
 
-  const restaurant = restaurants.find((r) => r.id === restaurantId);
+  const allStores = [...restaurants, ...groceryStores];
+  const restaurant = allStores.find((r) => r.id === restaurantId);
   const deliveryFee = restaurant?.deliveryFee ?? 2.99;
   const serviceFee = Math.round(subtotal * 0.05 * 100) / 100;
   const total = subtotal + deliveryFee + serviceFee + DIME_AID_FEE.total;
