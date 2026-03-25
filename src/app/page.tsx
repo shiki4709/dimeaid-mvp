@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Star, Clock, Search, ChevronDown, UtensilsCrossed, ShoppingCart, Wine, Car, Pill, Flower2 } from "lucide-react";
+import { MapPin, Star, Clock, Search, ChevronDown, UtensilsCrossed, ShoppingCart, Wine, Pill, Flower2, ShoppingBag, Heart } from "lucide-react";
 import { restaurants } from "@/lib/data";
 import DimeAidBadge from "@/components/DimeAidBadge";
 
@@ -8,8 +8,8 @@ const uberCategories = [
   { icon: UtensilsCrossed, label: "Restaurants" },
   { icon: ShoppingCart, label: "Grocery" },
   { icon: Wine, label: "Alcohol" },
-  { icon: Pill, label: "Health" },
-  { icon: Car, label: "Rides" },
+  { icon: Pill, label: "Pharmacy" },
+  { icon: ShoppingBag, label: "Retail" },
   { icon: Flower2, label: "Flowers" },
 ] as const;
 
@@ -78,27 +78,27 @@ export default function HomePage() {
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 448px) 100vw, 448px"
               />
-              <div className="absolute bottom-3 right-3">
+              <button className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm">
+                <Heart size={16} className="text-white" />
+              </button>
+              <div className="absolute bottom-3 left-3">
                 <DimeAidBadge />
               </div>
             </div>
             <div className="p-4">
               <div className="flex items-start justify-between">
                 <h3 className="text-base font-bold">{restaurant.name}</h3>
-                <div className="flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-xs font-medium">
-                  <Star size={12} fill="white" />
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-xs font-bold">
                   {restaurant.rating}
                 </div>
               </div>
-              <div className="mt-1.5 flex items-center gap-3 text-xs text-muted">
-                <span className="flex items-center gap-1">
-                  <Clock size={12} />
-                  {restaurant.deliveryTime}
-                </span>
+              <div className="mt-1.5 flex items-center gap-2 text-xs text-muted">
+                <span>{restaurant.deliveryTime}</span>
+                <span className="text-white/20">·</span>
                 <span>
                   {restaurant.deliveryFee === 0
                     ? "Free Delivery"
-                    : `$${restaurant.deliveryFee.toFixed(2)} delivery`}
+                    : `$${restaurant.deliveryFee.toFixed(2)} Delivery Fee`}
                 </span>
               </div>
             </div>

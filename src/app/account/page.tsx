@@ -13,6 +13,8 @@ import {
   Gift,
   Star,
   LogOut,
+  ClipboardList,
+  Bookmark,
 } from "lucide-react";
 
 const menuItems = [
@@ -20,6 +22,13 @@ const menuItems = [
     section: "DIME AID",
     items: [
       { icon: Heart, label: "Your Impact", href: "/impact", accent: true },
+    ],
+  },
+  {
+    section: "Orders & Favorites",
+    items: [
+      { icon: ClipboardList, label: "Orders", href: "#" },
+      { icon: Bookmark, label: "Favorites", href: "#" },
     ],
   },
   {

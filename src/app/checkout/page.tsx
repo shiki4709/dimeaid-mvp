@@ -128,7 +128,7 @@ export default function CheckoutPage() {
           clearCart();
           router.push(`/confirmation?restaurant=${encodeURIComponent(orderRestaurant)}&total=${orderTotal}`);
         }}
-        className="mt-6 w-full rounded-2xl bg-dime-green py-4 text-center text-base font-bold transition-transform active:scale-[0.98]"
+        className="mt-6 w-full rounded-2xl bg-white py-4 text-center text-base font-bold text-black transition-transform active:scale-[0.98]"
       >
         Place Order
       </button>

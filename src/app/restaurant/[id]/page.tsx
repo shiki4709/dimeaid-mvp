@@ -86,20 +86,6 @@ export default function RestaurantPage() {
                 key={item.id}
                 className="flex gap-4 rounded-2xl bg-surface p-3 transition-colors"
               >
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                    sizes="96px"
-                  />
-                  {item.popular && (
-                    <span className="absolute left-1 top-1 rounded-full bg-dime-green px-1.5 py-0.5 text-[10px] font-bold">
-                      Popular
-                    </span>
-                  )}
-                </div>
                 <div className="flex flex-1 flex-col justify-between">
                   <div>
                     <h3 className="text-sm font-semibold">{item.name}</h3>
@@ -107,33 +93,49 @@ export default function RestaurantPage() {
                       {item.description}
                     </p>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="mt-2 flex items-center gap-3">
                     <span className="text-sm font-bold">${item.price.toFixed(2)}</span>
-                    {qty === 0 ? (
-                      <button
-                        onClick={() => addItem(item, restaurant.id, restaurant.name)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full bg-dime-green text-white transition-transform active:scale-90"
-                      >
-                        <Plus size={18} />
-                      </button>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => updateQuantity(item.id, qty - 1)}
-                          className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
-                        >
-                          <Minus size={14} />
-                        </button>
-                        <span className="w-5 text-center text-sm font-bold">{qty}</span>
-                        <button
-                          onClick={() => addItem(item, restaurant.id, restaurant.name)}
-                          className="flex h-7 w-7 items-center justify-center rounded-full bg-dime-green transition-colors"
-                        >
-                          <Plus size={14} />
-                        </button>
-                      </div>
+                    {item.popular && (
+                      <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/60">
+                        Popular
+                      </span>
                     )}
                   </div>
+                </div>
+                <div className="relative flex flex-col items-center gap-1.5">
+                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                    />
+                  </div>
+                  {qty === 0 ? (
+                    <button
+                      onClick={() => addItem(item, restaurant.id, restaurant.name)}
+                      className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black transition-transform active:scale-90"
+                    >
+                      <Plus size={16} />
+                    </button>
+                  ) : (
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        onClick={() => updateQuantity(item.id, qty - 1)}
+                        className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
+                      >
+                        <Minus size={13} />
+                      </button>
+                      <span className="w-4 text-center text-xs font-bold">{qty}</span>
+                      <button
+                        onClick={() => addItem(item, restaurant.id, restaurant.name)}
+                        className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black transition-colors"
+                      >
+                        <Plus size={13} />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             );

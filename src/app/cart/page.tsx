@@ -92,7 +92,7 @@ export default function CartPage() {
       {/* Go to Checkout */}
       <button
         onClick={() => router.push("/checkout")}
-        className="mt-6 w-full rounded-2xl bg-dime-green py-4 text-center text-base font-bold transition-transform active:scale-[0.98]"
+        className="mt-6 w-full rounded-2xl bg-white py-4 text-center text-base font-bold text-black transition-transform active:scale-[0.98]"
       >
         Go to Checkout — ${total.toFixed(2)}
       </button>
