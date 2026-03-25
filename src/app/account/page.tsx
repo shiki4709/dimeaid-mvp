@@ -15,6 +15,7 @@ import {
   LogOut,
   ClipboardList,
   Bookmark,
+  Zap,
 } from "lucide-react";
 
 const menuItems = [
@@ -22,6 +23,7 @@ const menuItems = [
     section: "DIME AID",
     items: [
       { icon: Heart, label: "Your Impact", href: "/impact", accent: true },
+      { icon: Zap, label: "How DIMETECH Works", href: "/how-it-works", accent: true },
     ],
   },
   {

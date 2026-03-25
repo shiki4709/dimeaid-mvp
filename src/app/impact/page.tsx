@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Heart, TrendingUp, MapPin, Utensils } from "lucide-react";
+import { ArrowLeft, Heart, TrendingUp, MapPin, Utensils, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { impactStats, merchantReport } from "@/lib/data";
 import { Building2, Download } from "lucide-react";
@@ -177,6 +178,18 @@ export default function ImpactPage() {
           Simulated data for demonstration purposes
         </p>
       </div>
+
+      {/* How DIMETECH Works CTA */}
+      <Link
+        href="/how-it-works"
+        className="mt-6 flex items-center gap-3 rounded-2xl bg-surface p-4 transition-colors hover:bg-surface-hover"
+      >
+        <div className="flex-1">
+          <p className="text-sm font-semibold">How DIMETECH Works</p>
+          <p className="mt-0.5 text-xs text-white/40">Money flow, audit trail & POS integration</p>
+        </div>
+        <ChevronRight size={16} className="text-white/20" />
+      </Link>
     </div>
   );
 }
