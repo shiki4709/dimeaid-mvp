@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
-const hiddenPaths = ["/compare", "/how-it-works"];
+const hiddenPaths = ["/compare", "/how-it-works", "/partner-kit"];
 
 export default function FloatingCart() {
   const { totalItems, subtotal } = useCart();

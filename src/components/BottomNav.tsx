@@ -11,7 +11,7 @@ const navItems = [
   { href: "/account", icon: User, label: "Account" },
 ] as const;
 
-const hiddenPaths = ["/compare", "/how-it-works"];
+const hiddenPaths = ["/compare", "/how-it-works", "/partner-kit"];
 
 export default function BottomNav() {
   const pathname = usePathname();
