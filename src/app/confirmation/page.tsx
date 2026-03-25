@@ -30,7 +30,7 @@ function ConfirmationContent() {
         <p className="mt-1 text-2xl font-bold">25-35 min</p>
         <div className="mt-4 flex items-center gap-2 text-xs text-muted">
           <MapPin size={12} />
-          <span>1847 Commerce St, Dallas, TX</span>
+          <span>401 Bay Street, Toronto, ON</span>
         </div>
         <button className="mt-4 flex w-full items-center justify-center gap-1 rounded-xl bg-white/5 py-3 text-sm font-semibold transition-colors hover:bg-white/10">
           Track Order
@@ -53,7 +53,7 @@ function ConfirmationContent() {
       >
         <Heart size={14} className="shrink-0 text-dime-teal/60" fill="rgba(6,182,212,0.6)" />
         <p className="flex-1 text-xs text-white/40">
-          Your 10¢ is helping feed a child in Dallas through {restaurantName}
+          Your 10¢ is helping feed a child in Toronto through {restaurantName}
         </p>
         <ChevronRight size={14} className="shrink-0 text-white/20" />
       </Link>

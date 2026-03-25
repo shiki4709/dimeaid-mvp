@@ -1,10 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Star, Clock, Search, ChevronDown } from "lucide-react";
+import { MapPin, Star, Clock, Search, ChevronDown, UtensilsCrossed, ShoppingCart, Wine, Car, Pill, Flower2 } from "lucide-react";
 import { restaurants } from "@/lib/data";
 import DimeAidBadge from "@/components/DimeAidBadge";
 
-const categories = ["Pizza", "Chicken", "Tacos", "Burgers", "Sushi", "Chinese", "Indian"];
+const uberCategories = [
+  { icon: UtensilsCrossed, label: "Restaurants" },
+  { icon: ShoppingCart, label: "Grocery" },
+  { icon: Wine, label: "Alcohol" },
+  { icon: Pill, label: "Health" },
+  { icon: Car, label: "Rides" },
+  { icon: Flower2, label: "Flowers" },
+] as const;
+
+const foodCategories = ["Pizza", "Chicken", "Tacos", "Burgers", "Sushi", "Grocery", "Convenience"];
 
 export default function HomePage() {
   return (
@@ -14,7 +23,7 @@ export default function HomePage() {
         <p className="text-sm font-medium text-muted">Deliver now</p>
         <span className="text-sm text-white/30">·</span>
         <div className="flex items-center gap-0.5">
-          <p className="text-sm font-semibold">Dallas, TX</p>
+          <p className="text-sm font-semibold">Toronto, ON</p>
           <ChevronDown size={14} className="text-white/50" />
         </div>
       </div>
@@ -22,12 +31,27 @@ export default function HomePage() {
       {/* Search */}
       <div className="flex items-center gap-3 rounded-2xl bg-surface px-4 py-3">
         <Search size={18} className="text-muted" />
-        <span className="text-sm text-muted">Search restaurants, food...</span>
+        <span className="text-sm text-muted">Search Uber Eats...</span>
       </div>
 
-      {/* Categories */}
-      <div className="hide-scrollbar -mx-4 flex gap-3 overflow-x-auto px-4">
-        {categories.map((cat) => (
+      {/* Uber Category Icons */}
+      <div className="hide-scrollbar -mx-4 flex gap-1 overflow-x-auto px-4">
+        {uberCategories.map(({ icon: Icon, label }) => (
+          <button
+            key={label}
+            className="flex shrink-0 flex-col items-center gap-1.5 rounded-xl px-4 py-2.5 transition-colors hover:bg-surface"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface">
+              <Icon size={18} className="text-white/70" />
+            </div>
+            <span className="text-[11px] text-white/60">{label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Food Categories */}
+      <div className="hide-scrollbar -mx-4 flex gap-2.5 overflow-x-auto px-4">
+        {foodCategories.map((cat) => (
           <button
             key={cat}
             className="shrink-0 rounded-full bg-surface px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-surface-hover"

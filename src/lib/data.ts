@@ -201,11 +201,11 @@ export const impactStats = {
   mealsServed: 124341,
   citiesReached: 47,
   topCities: [
-    { name: "Dallas, TX", meals: 34200, amount: 3420.00 },
-    { name: "Houston, TX", meals: 28100, amount: 2810.00 },
-    { name: "Austin, TX", meals: 19500, amount: 1950.00 },
-    { name: "San Antonio, TX", meals: 15800, amount: 1580.00 },
-    { name: "Fort Worth, TX", meals: 12400, amount: 1240.00 },
+    { name: "Toronto, ON", meals: 34200, amount: 3420.00 },
+    { name: "Vancouver, BC", meals: 28100, amount: 2810.00 },
+    { name: "Montreal, QC", meals: 19500, amount: 1950.00 },
+    { name: "Calgary, AB", meals: 15800, amount: 1580.00 },
+    { name: "Ottawa, ON", meals: 12400, amount: 1240.00 },
   ],
   monthlyData: [
     { month: "Oct", meals: 15200 },
@@ -218,7 +218,7 @@ export const impactStats = {
 } as const;
 
 export const merchantReport = {
-  partnerName: "Pizza Hut Dallas",
+  partnerName: "Uber Eats Toronto",
   period: "March 2026",
   totalOrders: 142300,
   participationRate: 100,

@@ -50,8 +50,8 @@ export default function CheckoutPage() {
             <MapPin size={18} className="text-white/60" />
           </div>
           <div>
-            <p className="text-sm font-semibold">1847 Commerce St</p>
-            <p className="text-xs text-muted">Dallas, TX 75201</p>
+            <p className="text-sm font-semibold">401 Bay Street</p>
+            <p className="text-xs text-muted">Toronto, ON M5H 2Y4</p>
           </div>
         </div>
         <ChevronRight size={16} className="text-white/30" />
