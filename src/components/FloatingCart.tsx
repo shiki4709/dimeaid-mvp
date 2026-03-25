@@ -1,13 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
+const hiddenPaths = ["/compare", "/how-it-works"];
+
 export default function FloatingCart() {
   const { totalItems, subtotal } = useCart();
+  const pathname = usePathname();
 
   if (totalItems === 0) return null;
+  if (hiddenPaths.some((p) => pathname.startsWith(p))) return null;
 
   return (
     <Link

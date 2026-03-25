@@ -11,8 +11,12 @@ const navItems = [
   { href: "/account", icon: User, label: "Account" },
 ] as const;
 
+const hiddenPaths = ["/compare", "/how-it-works"];
+
 export default function BottomNav() {
   const pathname = usePathname();
+
+  if (hiddenPaths.some((p) => pathname.startsWith(p))) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#09090B]/95 backdrop-blur-md">
