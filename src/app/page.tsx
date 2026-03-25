@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Star, Clock, Search } from "lucide-react";
+import { MapPin, Star, Clock, Search, ChevronDown } from "lucide-react";
 import { restaurants } from "@/lib/data";
 import DimeAidBadge from "@/components/DimeAidBadge";
 
@@ -10,11 +10,12 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-md space-y-6 px-4 pt-4">
       {/* Location Header */}
-      <div className="flex items-center gap-2">
-        <MapPin size={18} className="text-dime-green" />
-        <div>
-          <p className="text-xs text-muted">Delivering to</p>
+      <div className="flex items-center gap-1.5">
+        <p className="text-sm font-medium text-muted">Deliver now</p>
+        <span className="text-sm text-white/30">·</span>
+        <div className="flex items-center gap-0.5">
           <p className="text-sm font-semibold">Dallas, TX</p>
+          <ChevronDown size={14} className="text-white/50" />
         </div>
       </div>
 

@@ -63,7 +63,7 @@ export const restaurants: readonly Restaurant[] = [
         name: "Buffalo Wings (8pc)",
         description: "Crispy wings tossed in tangy buffalo sauce",
         price: 9.99,
-        image: "https://images.unsplash.com/photo-1608039829572-9b0088395fd6?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1614398751058-eb2e0bf63e53?w=400&q=80",
         popular: true,
       },
       {
@@ -86,7 +86,7 @@ export const restaurants: readonly Restaurant[] = [
     id: "kfc",
     name: "KFC",
     image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800&q=80",
-    logo: "https://images.unsplash.com/photo-1513639776629-7b43c26e44f1?w=200&q=80",
+    logo: "https://images.unsplash.com/photo-1513185158878-8d8c2a2a3da3?w=200&q=80",
     rating: 4.3,
     deliveryTime: "20-30 min",
     deliveryFee: 1.99,
