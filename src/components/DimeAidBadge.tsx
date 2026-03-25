@@ -11,7 +11,7 @@ export default function DimeAidBadge({ size = "sm" }: { size?: "sm" | "md" }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-[#06C167]/15 px-2 py-0.5 text-xs font-medium text-[#06C167]">
+    <span className="inline-flex items-center gap-1 rounded-full bg-black/60 px-2 py-0.5 text-xs font-medium text-[#06C167] backdrop-blur-sm">
       <Heart size={10} fill="currentColor" />
       DIME AID
     </span>
