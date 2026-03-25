@@ -235,7 +235,7 @@ export const groceryStores: readonly Restaurant[] = [
         name: "Sourdough Bread",
         description: "Freshly baked artisan sourdough loaf",
         price: 5.49,
-        image: "https://images.unsplash.com/photo-1585478259715-876acc5be8fc?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80",
       },
       {
         id: "lb-4",
@@ -256,7 +256,7 @@ export const groceryStores: readonly Restaurant[] = [
         name: "Chicken Breast (1kg)",
         description: "Fresh boneless skinless chicken breast",
         price: 14.99,
-        image: "https://images.unsplash.com/photo-1604503468506-a8da13d82571?w=400&q=80",
+        image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&q=80",
       },
     ],
   },
