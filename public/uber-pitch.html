@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DimeTech — Uber Partnership</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -307,12 +306,36 @@
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 6. PROJECTIONS — cream, chart -->
+    <!-- 6. PROJECTIONS — pure CSS bar chart -->
     <div class="slide bg-cream">
         <div class="eyebrow" style="color: var(--stone-400);">5-year projection</div>
         <h3 style="color: var(--black);">Growth trajectory</h3>
-        <div class="chart-wrap">
-            <canvas id="chart" role="img" aria-label="Donations growing from $10M to $166M over 5 years"></canvas>
+        <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 40px; height: 240px; width: 100%; max-width: 600px;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$10.3M</div>
+                <div style="width: 100%; height: 15%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 1</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$21.5M</div>
+                <div style="width: 100%; height: 25%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 2</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$45M</div>
+                <div style="width: 100%; height: 40%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 3</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$79.8M</div>
+                <div style="width: 100%; height: 60%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 4</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$165.6M</div>
+                <div style="width: 100%; height: 100%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 5</div>
+            </div>
         </div>
         <p class="src" style="color: var(--stone-300);">Internal modeling. 18-month ramp. Tax estimates subject to legal review.</p>
         <div class="foot" style="color: var(--stone-300);">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
@@ -439,28 +462,6 @@
         document.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].clientX; if (Math.abs(d) > 50) go(d > 0 ? 1 : -1); });
         show(1);
 
-        const ctx = document.getElementById('chart');
-        if (ctx && typeof Chart !== 'undefined') {
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
-                    datasets: [{ label: 'Donations ($M)', data: [10.3, 21.5, 45, 79.8, 165.6], backgroundColor: '#16A34A', borderRadius: 3, barPercentage: 0.5 },
-                    { label: 'Tax Benefit ($M)', data: [2.1, 4.3, 9, 16, 33.1], backgroundColor: '#D6D3D1', borderRadius: 3, barPercentage: 0.5 }]
-                },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'top', labels: { color: '#A8A29E', font: { family: 'DM Sans', size: 12 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' } },
-                        tooltip: { backgroundColor: '#1C1917', titleFont: { family: 'General Sans', size: 13 }, bodyFont: { family: 'DM Sans', size: 12 }, padding: 10, cornerRadius: 4, callbacks: { label: c => c.dataset.label + ': $' + c.parsed.y + 'M' } }
-                    },
-                    scales: {
-                        x: { grid: { display: false }, ticks: { color: '#A8A29E', font: { family: 'General Sans', size: 12 } } },
-                        y: { grid: { color: '#E7E5E4' }, ticks: { color: '#A8A29E', font: { family: 'DM Sans', size: 11 }, callback: v => '$' + v + 'M' }, border: { display: false } }
-                    }
-                }
-            });
-        }
     </script>
 </body>
 </html>
