@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DimeTech — POS Integration Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FFFFFF;
+            --color-surface: #F9FAFB;
+            --color-surface-elevated: #F3F4F6;
+            --color-border: #E5E7EB;
+            --color-text: #111827;
+            --color-text-secondary: #4B5563;
+            --color-text-muted: #9CA3AF;
+            --color-blue: #2563EB;
+            --color-green: #16A34A;
+            --color-amber: #D97706;
+            --color-purple: #7C3AED;
+            --color-red: #DC2626;
+            --gradient-primary: linear-gradient(135deg, #2563EB, #16A34A);
+            --font-heading: 'Space Grotesk', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 64px 40px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-blue);
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: var(--font-heading);
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .header h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            line-height: 1.65;
+        }
+
+        .conf {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            margin-top: 20px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .section h3 {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .section p {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Architecture Diagram */
+        .diagram {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 24px 0 32px;
+            overflow-x: auto;
+        }
+
+        .diagram-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .diagram-row:last-child { margin-bottom: 0; }
+
+        .d-box {
+            border-radius: 10px;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            min-width: 120px;
+            position: relative;
+        }
+
+        .d-pos {
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            color: var(--color-text-secondary);
+        }
+
+        .d-adapter {
+            background: #F5F3FF;
+            border: 1px solid #DDD6FE;
+            color: var(--color-purple);
+        }
+
+        .d-core {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: var(--color-blue);
+            padding: 20px 32px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .d-output {
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            color: var(--color-green);
+        }
+
+        .d-arrow {
+            color: #D1D5DB;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .d-arrow-down {
+            text-align: center;
+            color: #D1D5DB;
+            font-size: 18px;
+            margin: 4px 0;
+        }
+
+        .d-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .d-bracket {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* POS Grid */
+        .pos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .pos-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .pos-card .pos-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .pos-card .pos-share {
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+
+        .pos-card .pos-method {
+            font-size: 11px;
+            color: var(--color-purple);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .pos-card .pos-status {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .status-priority {
+            background: #EFF6FF;
+            color: var(--color-blue);
+        }
+
+        .status-planned {
+            background: #F3F4F6;
+            color: var(--color-text-muted);
+        }
+
+        /* Code block */
+        .code-block {
+            background: #1F2937;
+            border: 1px solid #374151;
+            border-radius: 10px;
+            padding: 20px 24px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            line-height: 1.7;
+            overflow-x: auto;
+            margin: 16px 0;
+            color: #D1D5DB;
+        }
+
+        .code-block .comment { color: #6B7280; }
+        .code-block .key { color: #60A5FA; }
+        .code-block .string { color: #4ADE80; }
+        .code-block .number { color: #FBBF24; }
+
+        /* Table */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .spec-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            padding: 10px 16px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .spec-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #F3F4F6;
+            color: var(--color-text-secondary);
+        }
+
+        .spec-table td:first-child {
+            color: var(--color-text);
+            font-weight: 500;
+            font-family: var(--font-mono);
+            font-size: 13px;
+        }
+
+        /* Callout */
+        .callout {
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .callout p {
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        .callout strong {
+            color: var(--color-text);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .timeline-item:last-child { border-bottom: none; }
+
+        .timeline-phase {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-blue);
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
+            font-size: 11px;
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .page { padding: 32px 20px; }
+            .pos-grid { grid-template-columns: 1fr 1fr; }
+            .diagram { padding: 24px 16px; }
+            .d-bracket { flex-direction: column; align-items: center; }
+        }
+
+        @media print {
+            body { background: white; color: #111; }
+            .d-box, .pos-card, .callout, .code-block, .diagram { border-color: #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-label">Technical Specification</div>
+            <h1>DimeTech <span>POS Integration</span> Architecture</h1>
+            <p>How DimeTech sits on top of any point-of-sale system as a universal middleware layer &mdash; without requiring merchants to change their existing setup.</p>
+            <p class="conf">Confidential &middot; Lazarus Invents Inc. &middot; April 2026</p>
+        </div>
+
+        <!-- Architecture Overview -->
+        <div class="section">
+            <h2>Architecture Overview</h2>
+            <p>DimeTech operates as a <strong style="color: var(--color-text);">middleware API layer</strong> that sits between the POS system and the payment processor. It intercepts the transaction total, appends 11&cent;, splits the funds (10&cent; to charity, 1&cent; to operations), and returns a modified receipt &mdash; all without touching the merchant&rsquo;s existing workflow.</p>
+
+            <div class="diagram">
+                <div class="d-label">POS Systems (Input)</div>
+                <div class="d-bracket">
+                    <div class="d-box d-pos">Toast</div>
+                    <div class="d-box d-pos">Square</div>
+                    <div class="d-box d-pos">Clover</div>
+                    <div class="d-box d-pos">Lightspeed</div>
+                    <div class="d-box d-pos">NCR Aloha</div>
+                    <div class="d-box d-pos">Micros</div>
+                </div>
+
+                <div class="d-arrow-down">&darr;</div>
+
+                <div class="d-label">Adapter Layer (Normalization)</div>
+                <div class="diagram-row">
+                    <div class="d-box d-adapter" style="flex: 1; max-width: 500px;">
+                        POS Adapter &mdash; Normalizes webhooks, data models, and auth per system
+                    </div>
+                </div>
+
+                <div class="d-arrow-down">&darr;</div>
+
+                <div class="d-label">DimeTech Core</div>
+                <div class="diagram-row">
+                    <div class="d-box d-core" style="flex: 1; max-width: 500px;">
+                        DimeTech API<br>
+                        <span style="font-size: 12px; font-weight: 400; opacity: 0.7;">Transaction intercept &bull; 11&cent; append &bull; Split logic &bull; Audit trail &bull; Tax receipt</span>
+                    </div>
+                </div>
+
+                <div class="d-arrow-down">&darr;</div>
+
+                <div class="d-label">Outputs</div>
+                <div class="d-bracket">
+                    <div class="d-box d-output">10&cent; &rarr; Food Bank</div>
+                    <div class="d-box d-output">1&cent; &rarr; Operations</div>
+                    <div class="d-box d-output">Tax Receipt</div>
+                    <div class="d-box d-output">Audit Log</div>
+                </div>
+            </div>
+
+            <div class="callout">
+                <p><strong>Key insight:</strong> DimeTech doesn&rsquo;t replace any POS system. It sits on top. The adapter layer handles the differences between systems so the core logic stays the same regardless of which POS the merchant uses.</p>
+            </div>
+        </div>
+
+        <!-- How Integration Works -->
+        <div class="section">
+            <h2>The Adapter Pattern</h2>
+            <p>Every POS system has a different API, webhook format, and data model. DimeTech solves this with a <strong style="color: var(--color-text);">per-POS adapter</strong> that normalizes everything into a standard internal format before it reaches the core logic.</p>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>POS Variation</th>
+                        <th>What Differs</th>
+                        <th>What DimeTech Normalizes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Webhook format</td>
+                        <td>Toast uses REST callbacks, Square uses event subscriptions</td>
+                        <td>Standard event schema regardless of source</td>
+                    </tr>
+                    <tr>
+                        <td>Auth model</td>
+                        <td>OAuth 2.0, API keys, session tokens</td>
+                        <td>Unified credential store per merchant</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction data</td>
+                        <td>Field names, nesting, currency handling</td>
+                        <td>Canonical transaction object</td>
+                    </tr>
+                    <tr>
+                        <td>Receipt format</td>
+                        <td>HTML, JSON, thermal printer commands</td>
+                        <td>DimeTech line item injected in native format</td>
+                    </tr>
+                    <tr>
+                        <td>Permissions</td>
+                        <td>Varies by marketplace/API tier</td>
+                        <td>Minimum required scopes per adapter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- API Spec -->
+        <div class="section">
+            <h2>API Specification</h2>
+            <p>The DimeTech API exposes a simple REST interface. POS adapters call this internally, but it can also be called directly for custom integrations.</p>
+
+            <h3>POST /v1/transactions</h3>
+            <p>Called when a transaction is completed. Appends the DimeTech surcharge and returns the split.</p>
+
+            <div class="code-block">
+<span class="comment">// Request</span>
+POST /v1/transactions
+Content-Type: application/json
+
+{
+  <span class="key">"merchant_id"</span>: <span class="string">"mch_uber_eats_001"</span>,
+  <span class="key">"pos_system"</span>: <span class="string">"toast"</span>,
+  <span class="key">"transaction_id"</span>: <span class="string">"txn_8847291"</span>,
+  <span class="key">"amount_cents"</span>: <span class="number">1873</span>,
+  <span class="key">"currency"</span>: <span class="string">"USD"</span>,
+  <span class="key">"timestamp"</span>: <span class="string">"2026-04-15T14:32:00Z"</span>
+}
+            </div>
+
+            <div class="code-block">
+<span class="comment">// Response</span>
+{
+  <span class="key">"status"</span>: <span class="string">"success"</span>,
+  <span class="key">"dimetech_id"</span>: <span class="string">"dt_0847291"</span>,
+  <span class="key">"original_amount_cents"</span>: <span class="number">1873</span>,
+  <span class="key">"surcharge_cents"</span>: <span class="number">11</span>,
+  <span class="key">"final_amount_cents"</span>: <span class="number">1884</span>,
+  <span class="key">"split"</span>: {
+    <span class="key">"charity_cents"</span>: <span class="number">10</span>,
+    <span class="key">"operations_cents"</span>: <span class="number">1</span>
+  },
+  <span class="key">"charity_recipient"</span>: <span class="string">"Daily Bread Food Bank"</span>,
+  <span class="key">"tax_receipt_url"</span>: <span class="string">"https://api.dimetech.io/receipts/dt_0847291"</span>,
+  <span class="key">"audit_hash"</span>: <span class="string">"sha256:9f3c...a1e7"</span>
+}
+            </div>
+
+            <h3>GET /v1/merchants/:id/summary</h3>
+            <p>Returns aggregate donation totals and tax deduction estimates for a merchant or partner.</p>
+
+            <div class="code-block">
+<span class="comment">// Response</span>
+{
+  <span class="key">"merchant_id"</span>: <span class="string">"mch_uber_eats_001"</span>,
+  <span class="key">"period"</span>: <span class="string">"2026-Q1"</span>,
+  <span class="key">"total_transactions"</span>: <span class="number">142300</span>,
+  <span class="key">"total_donated_cents"</span>: <span class="number">1423000</span>,
+  <span class="key">"estimated_tax_deduction_cents"</span>: <span class="number">284600</span>,
+  <span class="key">"receipts_issued"</span>: <span class="number">142300</span>,
+  <span class="key">"audit_status"</span>: <span class="string">"verified"</span>
+}
+            </div>
+        </div>
+
+        <!-- POS Coverage -->
+        <div class="section">
+            <h2>POS Coverage Roadmap</h2>
+            <p>Priority integrations cover <strong style="color: var(--color-text);">~75% of the North American restaurant POS market</strong>. Each adapter takes 2&ndash;4 weeks to build and certify.</p>
+
+            <div class="pos-grid">
+                <div class="pos-card">
+                    <div class="pos-name">Toast</div>
+                    <div class="pos-share">~25% of US restaurants</div>
+                    <div class="pos-method">REST API + Webhooks</div>
+                    <span class="pos-status status-priority">Priority</span>
+                </div>
+                <div class="pos-card">
+                    <div class="pos-name">Square</div>
+                    <div class="pos-share">~20% of US SMBs</div>
+                    <div class="pos-method">Events API + OAuth 2.0</div>
+                    <span class="pos-status status-priority">Priority</span>
+                </div>
+                <div class="pos-card">
+                    <div class="pos-name">Clover</div>
+                    <div class="pos-share">~15% of US restaurants</div>
+                    <div class="pos-method">REST API + App Market</div>
+                    <span class="pos-status status-priority">Priority</span>
+                </div>
+                <div class="pos-card">
+                    <div class="pos-name">Lightspeed</div>
+                    <div class="pos-share">Strong in Canada</div>
+                    <div class="pos-method">REST API + OAuth</div>
+                    <span class="pos-status status-planned">Phase 2</span>
+                </div>
+                <div class="pos-card">
+                    <div class="pos-name">NCR Aloha</div>
+                    <div class="pos-share">Enterprise / chains</div>
+                    <div class="pos-method">Legacy API + Middleware</div>
+                    <span class="pos-status status-planned">Phase 2</span>
+                </div>
+                <div class="pos-card">
+                    <div class="pos-name">Oracle MICROS</div>
+                    <div class="pos-share">Enterprise / hotels</div>
+                    <div class="pos-method">OPERA API + Custom</div>
+                    <span class="pos-status status-planned">Phase 3</span>
+                </div>
+            </div>
+
+            <div class="callout">
+                <p><strong>The credible claim:</strong> &ldquo;DimeTech works with Toast, Square, and Clover &mdash; and is architected to integrate with any POS system.&rdquo; Three priority adapters cover ~60% of the market. Each new adapter reuses the same core logic.</p>
+            </div>
+        </div>
+
+        <!-- Integration Timeline -->
+        <div class="section">
+            <h2>Integration Timeline</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Month 1&ndash;2</div>
+                    <div class="timeline-content">
+                        <h4>Toast + Square Adapters</h4>
+                        <p>Build and certify the first two adapters. Covers ~45% of the restaurant market. Validates the adapter pattern in production.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Month 3</div>
+                    <div class="timeline-content">
+                        <h4>Clover Adapter</h4>
+                        <p>Third adapter built on proven pattern. Total coverage reaches ~60%. At this point, the &ldquo;works with any POS&rdquo; claim becomes credible.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Month 4&ndash;6</div>
+                    <div class="timeline-content">
+                        <h4>Lightspeed + NCR Aloha</h4>
+                        <p>Canadian market coverage (Lightspeed) and enterprise chains (NCR). Coverage reaches ~75%.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Month 6+</div>
+                    <div class="timeline-content">
+                        <h4>Long Tail + Custom</h4>
+                        <p>Oracle MICROS, Revel, TouchBistro, and custom POS systems. Partner-driven based on demand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Middleware Wins -->
+        <div class="section">
+            <h2>Why the Middleware Approach Wins</h2>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Approach</th>
+                        <th>Pros</th>
+                        <th>Cons</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: var(--color-red);">Replace POS</td>
+                        <td>Full control</td>
+                        <td>Merchants won&rsquo;t switch. Dead on arrival.</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--color-amber);">POS Plugin</td>
+                        <td>Native integration</td>
+                        <td>Must build per-POS app. Marketplace approval. Slow.</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--color-green);">Middleware API</td>
+                        <td>Universal. Fast to deploy. POS-agnostic core.</td>
+                        <td>Requires adapter per POS. Webhook reliability.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>DimeTech uses the <strong style="color: var(--color-text);">middleware approach</strong> because it&rsquo;s the only one that scales to &ldquo;all POS systems&rdquo; without requiring merchant buy-in on a system change. The adapter layer absorbs the complexity; the core stays clean.</p>
+        </div>
+
+        <!-- What To Say -->
+        <div class="section">
+            <h2>Recommended Positioning</h2>
+
+            <div class="callout" style="background: #F0FDF4; border-color: #BBF7D0;">
+                <p style="font-size: 16px; line-height: 1.7;">
+                    <strong>Lead with:</strong> &ldquo;Works with Toast, Square, and Clover.&rdquo;<br>
+                    <strong>Follow with:</strong> &ldquo;Built to integrate with any POS system.&rdquo;<br>
+                    <strong>Back it up:</strong> This document + the architecture diagram above.
+                </p>
+            </div>
+
+            <p>This is a claim you can defend in a room with Uber&rsquo;s partnerships team or a serious investor &mdash; without overpromising. The three priority integrations cover the majority of the market. The adapter architecture proves the pattern scales.</p>
+        </div>
+
+        <div class="footer">
+            <p>DIMETECH and DIME AID &copy; Larry Bleau &amp; Lazarus Invents Inc. Toronto, ON &amp; San Francisco, CA. Confidential.</p>
+        </div>
+
+    </div>
+</body>
+</html>
