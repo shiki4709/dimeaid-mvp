@@ -34,66 +34,19 @@
         .slide.active { opacity: 1; visibility: visible; }
         .slide.left { align-items: flex-start; text-align: left; }
 
-        /* Photo background slide */
-        .slide.photo {
-            background-size: cover; background-position: center;
-            position: relative;
-        }
-        .slide.photo::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to right, rgba(28,25,23,0.92) 0%, rgba(28,25,23,0.75) 50%, rgba(28,25,23,0.4) 100%);
-            z-index: 1;
-        }
-        .slide.photo > * { position: relative; z-index: 2; }
-
-        /* Split slide — text left, photo right */
-        .slide.split {
-            flex-direction: row; text-align: left; align-items: center;
-            padding: 0; gap: 0;
-        }
-        .split-text {
-            flex: 1; padding: 80px 64px; display: flex; flex-direction: column; justify-content: center;
-        }
-        .split-img {
-            flex: 1; height: 100%; background-size: cover; background-position: center;
-        }
-
-        /* Backgrounds */
-        .bg-white { background: var(--white); color: var(--black); }
-        .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4 { color: var(--black); }
-        .bg-white .sub, .bg-white .eyebrow { color: var(--stone-500); }
-        .bg-white .src { color: var(--stone-300); }
-        .bg-white .foot { color: var(--stone-300); }
-        .bg-white .grid-benefits p { color: var(--stone-500); }
-        .bg-white .stat-l { color: var(--stone-500); }
-        .bg-white .demo-link strong { color: var(--black); }
-        .bg-white .demo-link span { color: var(--stone-400); }
-
-        .bg-dark { background: var(--stone-900); color: var(--white); }
-        .bg-green { background: var(--green); color: var(--white); }
-        .bg-navy { background: var(--navy); color: var(--white); }
-
-        .bg-cream { background: var(--stone-50); color: var(--black); }
-        .bg-cream h1, .bg-cream h2, .bg-cream h3, .bg-cream h4 { color: var(--black); }
-        .bg-cream .sub, .bg-cream .eyebrow { color: var(--stone-500); }
-        .bg-cream .src { color: var(--stone-300); }
-        .bg-cream .foot { color: var(--stone-300); }
-
         h1 { font-family: var(--font-h); font-size: clamp(52px, 7vw, 96px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; }
         h2 { font-family: var(--font-h); font-size: clamp(36px, 4.5vw, 60px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
         h3 { font-family: var(--font-h); font-size: clamp(24px, 3vw, 36px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
-
         .sub { font-size: clamp(16px, 1.8vw, 21px); line-height: 1.6; max-width: 540px; margin-top: 24px; opacity: 0.7; }
         .eyebrow { font-family: var(--font-h); font-size: 13px; font-weight: 600; margin-bottom: 16px; opacity: 0.5; }
-        .src { font-size: 10px; opacity: 0.25; margin-top: 16px; max-width: 480px; }
-
+        .src { font-size: 10px; opacity: 0.3; margin-top: 20px; max-width: 520px; line-height: 1.5; }
         .big { font-family: var(--font-h); font-size: clamp(72px, 12vw, 160px); font-weight: 700; letter-spacing: -0.04em; line-height: 0.9; }
 
         /* Bar compare */
         .bar-compare { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 560px; margin-top: 40px; }
         .bar-item { text-align: left; }
         .bar-label { font-family: var(--font-h); font-size: 13px; font-weight: 500; margin-bottom: 8px; opacity: 0.5; }
-        .bar-track { width: 100%; height: 48px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; }
+        .bar-track { width: 100%; height: 48px; background: rgba(255,255,255,0.06); border-radius: 6px; overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 16px; font-family: var(--font-h); font-size: 20px; font-weight: 700; color: white; }
 
         /* Flow circles */
@@ -112,7 +65,7 @@
         /* Icon cards */
         .icon-row { display: flex; gap: 32px; margin-top: 40px; }
         .icon-card { flex: 1; text-align: center; }
-        .icon-circle { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); }
+        .icon-circle { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); }
         .icon-card h4 { font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
         .icon-card p { font-size: 12px; opacity: 0.5; line-height: 1.4; }
 
@@ -123,38 +76,14 @@
 
         /* Checks */
         .checks { list-style: none; margin-top: 40px; text-align: left; }
-        .checks li { font-family: var(--font-h); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.15); opacity: 0.8; }
+        .checks li { font-family: var(--font-h); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); opacity: 0.8; }
         .checks li span { opacity: 0.4; margin-right: 16px; }
 
-        /* Demo links */
-        .demo-links { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
-        .demo-link { display: block; padding: 20px 24px; border: 1px solid var(--stone-200); border-radius: 8px; text-decoration: none; transition: border-color 0.2s; text-align: left; }
-        .demo-link:hover { border-color: var(--green); }
-        .demo-link strong { font-family: var(--font-h); font-size: 15px; color: var(--black); display: block; }
-        .demo-link span { font-size: 13px; color: var(--stone-400); }
-
-        /* MVP mockup frame */
-        .mockup-frame {
-            margin-top: 32px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 24px 48px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-            overflow: hidden;
-            max-width: 720px;
-            width: 100%;
-        }
-        .mockup-bar {
-            height: 32px; background: var(--stone-100);
-            display: flex; align-items: center; padding: 0 12px; gap: 6px;
-        }
-        .mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--stone-300); }
-        .mockup-url {
-            flex: 1; margin-left: 8px; background: var(--white); border-radius: 4px;
-            padding: 2px 8px; font-size: 10px; color: var(--stone-400); font-family: var(--font-b);
-        }
-        .mockup-frame iframe {
-            width: 100%; height: 320px; border: none; pointer-events: none;
-        }
+        /* Demo mockup */
+        .mockup-frame { margin-top: 32px; background: #111; border-radius: 12px; box-shadow: 0 24px 48px rgba(0,0,0,0.3); overflow: hidden; max-width: 640px; width: 100%; }
+        .mockup-bar { height: 32px; background: #222; display: flex; align-items: center; padding: 0 12px; gap: 6px; }
+        .mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: #444; }
+        .mockup-url { flex: 1; margin-left: 8px; background: #1a1a1a; border-radius: 4px; padding: 2px 8px; font-size: 10px; color: #666; }
 
         /* Team */
         .team { display: flex; gap: 56px; margin-top: 48px; text-align: left; }
@@ -164,13 +93,10 @@
 
         /* Steps */
         .steps-visual { display: flex; gap: 20px; margin-top: 48px; }
-        .step-box { flex: 1; background: rgba(255,255,255,0.06); border-radius: 12px; padding: 28px 24px; text-align: left; }
-        .step-box .num { font-family: var(--font-h); font-size: 36px; font-weight: 700; opacity: 0.3; margin-bottom: 12px; }
+        .step-box { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 28px 24px; text-align: left; }
+        .step-box .num { font-family: var(--font-h); font-size: 36px; font-weight: 700; opacity: 0.2; margin-bottom: 12px; }
         .step-box h4 { font-family: var(--font-h); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
         .step-box p { font-size: 13px; opacity: 0.5; line-height: 1.5; }
-
-        /* Chart */
-        .chart-wrap { width: min(85%, 640px); height: clamp(200px, 36vh, 300px); margin-top: 32px; }
 
         .foot { position: absolute; bottom: 20px; left: 100px; right: 100px; font-size: 9px; text-align: center; opacity: 0.15; }
 
@@ -183,12 +109,9 @@
 
         @media (max-width: 768px) {
             .slide { padding: 48px 32px; }
-            .slide.split { flex-direction: column; }
-            .split-text { padding: 40px 32px; }
-            .split-img { height: 200px; width: 100%; flex: none; }
             .foot { left: 32px; right: 32px; }
             .stats, .team, .steps-visual { flex-direction: column; gap: 24px; }
-            .grid-benefits, .demo-links { grid-template-columns: 1fr; }
+            .grid-benefits { grid-template-columns: 1fr; }
             .flow-visual, .icon-row { flex-wrap: wrap; justify-content: center; }
         }
     </style>
@@ -197,8 +120,8 @@
     <div class="bar" id="bar"></div>
     <div class="deck">
 
-    <!-- 1. TITLE — photo bg: food bank volunteers -->
-    <div class="slide left active" style="background: linear-gradient(135deg, #0C0A09 0%, #1C1917 60%, #15803D 100%);">
+    <!-- 1. TITLE -->
+    <div class="slide left active" style="background: linear-gradient(160deg, #0C0A09 0%, #1C1917 40%, #0f2b1a 70%, #15803D 100%);">
         <div class="eyebrow">A confidential presentation to Uber Technologies</div>
         <h1>Dime<span style="color: var(--green);">Tech</span></h1>
         <p class="sub" style="opacity: 0.8;">Independent charitable donation verification, audit, and tax compliance. Every transaction. Every receipt. Every cent tracked.</p>
@@ -206,8 +129,8 @@
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 2. PROBLEM — bar comparison -->
-    <div class="slide bg-dark">
+    <!-- 2. PROBLEM -->
+    <div class="slide" style="background: linear-gradient(170deg, #1C1917 0%, #292524 100%);">
         <div class="eyebrow">The problem with round-up campaigns</div>
         <h2>Most customers say no.</h2>
         <div class="bar-compare">
@@ -221,12 +144,12 @@
             </div>
         </div>
         <p class="sub" style="font-size: 15px;">No prompts. No friction. Every transaction participates.</p>
-        <p class="src">Source: Binghamton University / JPNA 2024. $749M raised via POS campaigns in 2022.</p>
+        <p class="src">~50% of customers say yes at least once, but per-transaction rates are far lower. Source: Binghamton University / Journal of Philanthropic &amp; Nonprofit Activities, 2024. Point-of-sale campaigns raised $749M in 2022 (Engage for Good).</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 3. HOW IT WORKS — green bg, flow diagram -->
-    <div class="slide bg-green">
+    <!-- 3. HOW IT WORKS -->
+    <div class="slide" style="background: linear-gradient(145deg, #0f3d1f 0%, #16A34A 40%, #1a7a3a 100%);">
         <div class="eyebrow" style="opacity: 0.6;">How it works</div>
         <h2>11&cent; added automatically.</h2>
         <div class="flow-visual">
@@ -250,11 +173,12 @@
             </div>
         </div>
         <p class="sub" style="opacity: 0.85;">Not a customer donation. It&rsquo;s <strong>Uber&rsquo;s tax deduction</strong>, independently verified.</p>
+        <p class="src">11&cent; surcharge model. 10&cent; routed to partnered food banks (e.g. Daily Bread Food Bank, Second Harvest). 1&cent; covers third-party verification and operational costs. Tax deductibility subject to legal review per IRC &sect;170.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 4. WHY NOT BUILD IT — navy bg, icon cards -->
-    <div class="slide bg-navy">
+    <!-- 4. WHY NOT BUILD IT -->
+    <div class="slide" style="background: linear-gradient(155deg, #0f1a3d 0%, #1E40AF 50%, #162d6e 100%);">
         <div class="eyebrow" style="opacity: 0.5;">The question you&rsquo;re thinking</div>
         <h2>&ldquo;Why wouldn&rsquo;t we<br>just build this?&rdquo;</h2>
         <p class="sub" style="max-width: 600px; opacity: 0.8;">When the IRS audits a $40M charitable deduction, Uber needs an <strong>independent third party</strong>. That&rsquo;s not engineering &mdash; it&rsquo;s compliance.</p>
@@ -280,12 +204,12 @@
                 <p>Real-time compliance</p>
             </div>
         </div>
-        <p class="src">IRS requires substantiation for deductions over $250 (IRC &sect;170(f)(8)).</p>
+        <p class="src">IRS requires written acknowledgment for charitable contributions of $250+ (IRC &sect;170(f)(8)). Aggregated micro-donations may require substantiation at the annual level. Independent third-party verification strengthens audit defense.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
     <!-- 5. NUMBERS -->
-    <div class="slide bg-white">
+    <div class="slide" style="background: linear-gradient(165deg, #1C1917 0%, #292524 50%, #1C1917 100%);">
         <div class="eyebrow">Based on Uber&rsquo;s reported trip volume</div>
         <h2>The financial impact.</h2>
         <div class="stats">
@@ -302,62 +226,62 @@
                 <div class="stat-l">Over 5 years</div>
             </div>
         </div>
-        <p class="src">~2B trip estimate. Uber reported 11.2B trips in 2024 (Q4 Earnings). Tax estimates pending legal review.</p>
+        <p class="src">Based on a conservative ~2B qualifying trips/year. Uber reported 11.2B total trips in 2024 and $193B gross bookings in 2025 (Uber Q4 2024 &amp; Q4 2025 Earnings). $220M = 2B &times; $0.11. Tax deduction of ~$40M assumes an 18% effective rate on $220M &mdash; actual rate depends on jurisdiction and structure. All tax estimates are indicative and pending legal review.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 6. PROJECTIONS — pure CSS bar chart -->
-    <div class="slide bg-cream">
-        <div class="eyebrow" style="color: var(--stone-400);">5-year projection</div>
-        <h3 style="color: var(--black);">Growth trajectory</h3>
+    <!-- 6. PROJECTIONS -->
+    <div class="slide" style="background: linear-gradient(170deg, #0C0A09 0%, #1C1917 100%);">
+        <div class="eyebrow">5-year projection</div>
+        <h3>Growth trajectory</h3>
         <div style="display: flex; align-items: flex-end; gap: 24px; margin-top: 40px; height: 240px; width: 100%; max-width: 600px;">
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$10.3M</div>
-                <div style="width: 100%; height: 15%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
-                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 1</div>
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 8px;">$10.3M</div>
+                <div style="width: 100%; height: 15%; background: linear-gradient(180deg, #22c55e, #16A34A); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; opacity: 0.4; margin-top: 8px;">Year 1</div>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$21.5M</div>
-                <div style="width: 100%; height: 25%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
-                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 2</div>
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 8px;">$21.5M</div>
+                <div style="width: 100%; height: 25%; background: linear-gradient(180deg, #22c55e, #16A34A); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; opacity: 0.4; margin-top: 8px;">Year 2</div>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$45M</div>
-                <div style="width: 100%; height: 40%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
-                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 3</div>
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 8px;">$45M</div>
+                <div style="width: 100%; height: 40%; background: linear-gradient(180deg, #22c55e, #16A34A); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; opacity: 0.4; margin-top: 8px;">Year 3</div>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$79.8M</div>
-                <div style="width: 100%; height: 60%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
-                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 4</div>
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 8px;">$79.8M</div>
+                <div style="width: 100%; height: 60%; background: linear-gradient(180deg, #22c55e, #16A34A); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; opacity: 0.4; margin-top: 8px;">Year 4</div>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
-                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 8px;">$165.6M</div>
-                <div style="width: 100%; height: 100%; background: var(--green); border-radius: 4px 4px 0 0;"></div>
-                <div style="font-size: 12px; color: var(--stone-400); margin-top: 8px;">Year 5</div>
+                <div style="font-family: var(--font-h); font-size: 14px; font-weight: 600; margin-bottom: 8px;">$165.6M</div>
+                <div style="width: 100%; height: 100%; background: linear-gradient(180deg, #22c55e, #16A34A); border-radius: 4px 4px 0 0;"></div>
+                <div style="font-size: 12px; opacity: 0.4; margin-top: 8px;">Year 5</div>
             </div>
         </div>
-        <p class="src" style="color: var(--stone-300);">Internal modeling. 18-month ramp. Tax estimates subject to legal review.</p>
-        <div class="foot" style="color: var(--stone-300);">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
+        <p class="src">Projections are internal estimates based on DimeTech modeling. Assumes 18-month ramp to full transaction coverage, linear merchant onboarding, and $0.11/transaction. Year 1 includes ramp period. Tax benefit estimates assume ~20% of donation value. All figures are forward-looking and subject to partnership terms and legal review.</p>
+        <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 7. WHY UBER — white, grid -->
-    <div class="slide bg-white left" style="color: var(--black);">
-        <div class="eyebrow" style="color: var(--stone-400);">Why Uber</div>
-        <h2 style="color: var(--black);">Six strategic advantages.</h2>
-        <div class="grid-benefits" style="color: var(--black);">
-            <div><h4>Independent Verification</h4><p style="color: var(--stone-500);">Third-party audit trail. IRS-ready compliance for every donation.</p></div>
-            <div><h4>$40M+ Tax Savings</h4><p style="color: var(--stone-500);">Annual deductions with full documentation. Zero cost.</p></div>
-            <div><h4>Client Revenue Tool</h4><p style="color: var(--stone-500);">Offer DimeTech to merchants — they get tax savings, Uber gets loyalty.</p></div>
-            <div><h4>Competitive Moat</h4><p style="color: var(--stone-500);">Exclusive verified program competitors can't replicate.</p></div>
-            <div><h4>Government Leverage</h4><p style="color: var(--stone-500);">Transparent impact improves regulatory relationships.</p></div>
-            <div><h4>Legacy Impact</h4><p style="color: var(--stone-500);">Uber could end food insecurity. Verified, audited, real.</p></div>
+    <!-- 7. WHY UBER -->
+    <div class="slide left" style="background: linear-gradient(175deg, #292524 0%, #1C1917 100%);">
+        <div class="eyebrow">Why Uber</div>
+        <h2>Six strategic advantages.</h2>
+        <div class="grid-benefits">
+            <div><h4>Independent Verification</h4><p>Third-party audit trail. IRS-ready compliance for every donation.</p></div>
+            <div><h4>$40M+ Tax Savings</h4><p>Annual deductions with full documentation. Zero implementation cost.</p></div>
+            <div><h4>Client Revenue Tool</h4><p>Offer DimeTech to merchants &mdash; they get tax savings, Uber gets loyalty.</p></div>
+            <div><h4>Competitive Moat</h4><p>Exclusive verified program competitors can&rsquo;t replicate.</p></div>
+            <div><h4>Government Leverage</h4><p>Transparent charitable impact improves regulatory relationships.</p></div>
+            <div><h4>Legacy Impact</h4><p>Uber could end food insecurity. Verified, audited, real.</p></div>
         </div>
-        <div class="foot" style="color: var(--stone-300);">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
+        <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 8. FREE — green, bold -->
-    <div class="slide bg-green">
+    <!-- 8. FREE -->
+    <div class="slide" style="background: linear-gradient(140deg, #0f3d1f 0%, #16A34A 50%, #0C0A09 100%);">
         <div class="eyebrow" style="opacity: 0.6;">The price</div>
         <h1>Free.</h1>
         <ul class="checks">
@@ -366,11 +290,12 @@
             <li><span>&bull;</span>Zero operational burden</li>
             <li><span>&bull;</span>Exclusive partnership rights available</li>
         </ul>
+        <p class="src">DimeTech is free to partners. Revenue is generated from the 1&cent; operational fee per transaction. No integration fees, no subscription, no revenue share from the partner.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 9. DEMO — dark bg, browser mockup with live iframe -->
-    <div class="slide bg-dark">
+    <!-- 9. DEMO -->
+    <div class="slide" style="background: linear-gradient(160deg, #0C0A09 0%, #1C1917 60%, #0f1a3d 100%);">
         <div class="eyebrow" style="color: var(--green);">Live product</div>
         <h2>See it working.</h2>
         <div class="mockup-frame">
@@ -378,22 +303,22 @@
                 <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
                 <div class="mockup-url">dimeaid-mvp.vercel.app</div>
             </div>
-            <div style="width: 100%; height: 320px; background: var(--stone-900); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+            <div style="width: 100%; height: 280px; background: linear-gradient(180deg, #111, #0C0A09); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
                 <div style="font-family: var(--font-h); font-size: 32px; font-weight: 700; color: white;">Dime<span style="color: var(--green);">Aid</span></div>
                 <div style="font-size: 14px; color: var(--stone-400);">Live at dimeaid-mvp.vercel.app</div>
                 <a href="https://dimeaid-mvp.vercel.app" target="_blank" style="margin-top: 8px; padding: 10px 24px; background: var(--green); color: white; border-radius: 6px; text-decoration: none; font-family: var(--font-h); font-size: 14px; font-weight: 600;">Open Live Demo &rarr;</a>
             </div>
         </div>
         <div style="display: flex; gap: 24px; margin-top: 20px;">
-            <a href="https://dimeaid-mvp.vercel.app/how-it-works" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Money Flow &amp; Audit &rarr;</a>
-            <a href="https://dimeaid-mvp.vercel.app/compare" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Checkout Comparison &rarr;</a>
-            <a href="https://dimeaid-mvp.vercel.app/partner-kit" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Partner Materials &rarr;</a>
+            <a href="https://dimeaid-mvp.vercel.app/how-it-works" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Money Flow &rarr;</a>
+            <a href="https://dimeaid-mvp.vercel.app/compare" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Comparison &rarr;</a>
+            <a href="https://dimeaid-mvp.vercel.app/partner-kit" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Partner Kit &rarr;</a>
         </div>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 10. TEAM — photo bg: team/office -->
-    <div class="slide bg-dark">
+    <!-- 10. TEAM -->
+    <div class="slide" style="background: linear-gradient(170deg, #1C1917 0%, #292524 100%);">
         <div class="eyebrow">The team</div>
         <h2>Built by operators.</h2>
         <div class="team" style="margin-top: 40px;">
@@ -416,8 +341,8 @@
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 11. NEXT STEPS — dark, visual steps -->
-    <div class="slide bg-dark">
+    <!-- 11. NEXT STEPS -->
+    <div class="slide" style="background: linear-gradient(155deg, #0C0A09 0%, #1C1917 40%, #0f3d1f 100%);">
         <div class="eyebrow" style="color: var(--green);">Next steps</div>
         <h2>Let&rsquo;s end hunger together.</h2>
         <p class="sub">First-mover exclusivity is available now.</p>
@@ -461,7 +386,6 @@
         document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
         document.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].clientX; if (Math.abs(d) > 50) go(d > 0 ? 1 : -1); });
         show(1);
-
     </script>
 </body>
 </html>
