@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DimeTech — POS Integration Architecture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-bg: #FFFFFF;
-            --color-surface: #F9FAFB;
-            --color-surface-elevated: #F3F4F6;
-            --color-border: #E5E7EB;
-            --color-text: #111827;
-            --color-text-secondary: #4B5563;
-            --color-text-muted: #9CA3AF;
-            --color-blue: #2563EB;
+            --color-surface: #FAFAF9;
+            --color-surface-elevated: #F5F5F4;
+            --color-border: #E7E5E4;
+            --color-text: #1C1917;
+            --color-text-secondary: #78716C;
+            --color-text-muted: #A8A29E;
             --color-green: #16A34A;
+            --color-blue: #2563EB;
             --color-amber: #D97706;
             --color-purple: #7C3AED;
+            --color-orange: #EA580C;
             --color-red: #DC2626;
-            --gradient-primary: linear-gradient(135deg, #2563EB, #16A34A);
-            --font-heading: 'Space Grotesk', system-ui, sans-serif;
-            --font-body: 'Inter', system-ui, sans-serif;
+            --gradient-primary: linear-gradient(135deg, #16A34A, #1E40AF);
+            --font-heading: 'General Sans', system-ui, sans-serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
@@ -53,7 +55,7 @@
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: var(--color-blue);
+            color: var(--color-green);
             margin-bottom: 16px;
         }
 
@@ -144,8 +146,8 @@
         }
 
         .d-pos {
-            background: #F3F4F6;
-            border: 1px solid #E5E7EB;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
             color: var(--color-text-secondary);
         }
 
@@ -171,14 +173,14 @@
         }
 
         .d-arrow {
-            color: #D1D5DB;
+            color: #D6D3D1;
             font-size: 18px;
             flex-shrink: 0;
         }
 
         .d-arrow-down {
             text-align: center;
-            color: #D1D5DB;
+            color: #D6D3D1;
             font-size: 18px;
             margin: 4px 0;
         }
@@ -245,12 +247,12 @@
         }
 
         .status-priority {
-            background: #EFF6FF;
-            color: var(--color-blue);
+            background: #F0FDF4;
+            color: var(--color-green);
         }
 
         .status-planned {
-            background: #F3F4F6;
+            background: var(--color-surface-elevated);
             color: var(--color-text-muted);
         }
 
@@ -294,7 +296,7 @@
 
         .spec-table td {
             padding: 12px 16px;
-            border-bottom: 1px solid #F3F4F6;
+            border-bottom: 1px solid #F5F5F4;
             color: var(--color-text-secondary);
         }
 
@@ -307,8 +309,8 @@
 
         /* Callout */
         .callout {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
+            background: #F0FDF4;
+            border: 1px solid #DCFCE7;
             border-radius: 10px;
             padding: 20px 24px;
             margin: 20px 0;
@@ -332,7 +334,7 @@
             display: flex;
             gap: 20px;
             padding: 16px 0;
-            border-bottom: 1px solid #F3F4F6;
+            border-bottom: 1px solid #F5F5F4;
         }
 
         .timeline-item:last-child { border-bottom: none; }
@@ -341,7 +343,7 @@
             font-family: var(--font-heading);
             font-size: 13px;
             font-weight: 600;
-            color: var(--color-blue);
+            color: var(--color-green);
             min-width: 80px;
             flex-shrink: 0;
         }
@@ -666,7 +668,7 @@ Content-Type: application/json
         <div class="section">
             <h2>Recommended Positioning</h2>
 
-            <div class="callout" style="background: #F0FDF4; border-color: #BBF7D0;">
+            <div class="callout" style="background: #F0FDF4; border-color: #DCFCE7;">
                 <p style="font-size: 16px; line-height: 1.7;">
                     <strong>Lead with:</strong> &ldquo;Works with Toast, Square, and Clover.&rdquo;<br>
                     <strong>Follow with:</strong> &ldquo;Built to integrate with any POS system.&rdquo;<br>
