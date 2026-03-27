@@ -208,7 +208,40 @@
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 5. THE MONEY — merged: impact + what Uber keeps -->
+    <!-- 5. INTEGRATION — how it plugs in -->
+    <div class="slide" style="background: var(--white);">
+        <div class="eyebrow">Integration</div>
+        <h2>Works with any POS system.</h2>
+        <p class="sub" style="max-width: 540px;">One middleware layer. No changes to Uber&rsquo;s existing stack.</p>
+        <div style="display: flex; align-items: center; gap: 12px; margin-top: 40px; max-width: 680px; width: 100%;">
+            <!-- POS systems -->
+            <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Toast</div>
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Square</div>
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Clover</div>
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 13px; font-weight: 500; color: var(--stone-400); text-align: center;">Any POS</div>
+            </div>
+            <!-- Arrow -->
+            <div style="color: var(--stone-300); font-size: 20px; flex-shrink: 0;">&rarr;</div>
+            <!-- DimeTech -->
+            <div style="flex: 1; background: var(--green-50); border: 2px solid var(--green-100); border-radius: 12px; padding: 24px; text-align: center;">
+                <div style="font-family: var(--font-h); font-size: 18px; font-weight: 700; color: var(--green);">DimeTech API</div>
+                <div style="font-size: 12px; color: var(--stone-500); margin-top: 6px; line-height: 1.4;">Verification &bull; Audit &bull; Tax receipts &bull; Reporting</div>
+            </div>
+            <!-- Arrow -->
+            <div style="color: var(--stone-300); font-size: 20px; flex-shrink: 0;">&rarr;</div>
+            <!-- Outputs -->
+            <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
+                <div style="background: var(--green); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: white; text-align: center;">Food Banks</div>
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Tax Receipts</div>
+                <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Audit Log</div>
+            </div>
+        </div>
+        <p class="src">Priority integrations (Toast, Square, Clover) cover ~60% of North American restaurant POS market. Each adapter reuses the same core verification logic. Full technical spec: dimeaid-mvp.vercel.app/pos-integration-spec.html</p>
+        <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 6. THE MONEY — merged: impact + what Uber keeps -->
     <div class="slide" style="background: var(--stone-50);">
         <div class="eyebrow">The financial impact to Uber</div>
         <h2>What this is worth.</h2>
@@ -362,7 +395,7 @@
 
     <nav class="nav">
         <button onclick="go(-1)" aria-label="Previous"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
-        <span class="ct"><span id="c">1</span> / <span id="t">11</span></span>
+        <span class="ct"><span id="c">1</span> / <span id="t">12</span></span>
         <button onclick="go(1)" aria-label="Next"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
     </nav>
 
