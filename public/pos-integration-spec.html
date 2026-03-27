@@ -389,14 +389,14 @@
         <div class="header">
             <div class="header-label">Technical Specification</div>
             <h1>DimeTech <span>POS Integration</span> Architecture</h1>
-            <p>How DimeTech sits on top of any point-of-sale system as a universal middleware layer &mdash; without requiring merchants to change their existing setup.</p>
+            <p>Independent charitable donation verification, audit, and tax compliance &mdash; integrated as a middleware layer on top of any POS system, without requiring merchants to change their existing setup.</p>
             <p class="conf">Confidential &middot; Lazarus Invents Inc. &middot; April 2026</p>
         </div>
 
         <!-- Architecture Overview -->
         <div class="section">
             <h2>Architecture Overview</h2>
-            <p>DimeTech operates as a <strong style="color: var(--color-text);">middleware API layer</strong> that sits between the POS system and the payment processor. It intercepts the transaction total, appends 11&cent;, splits the funds (10&cent; to charity, 1&cent; to operations), and returns a modified receipt &mdash; all without touching the merchant&rsquo;s existing workflow.</p>
+            <p>DimeTech operates as an <strong style="color: var(--color-text);">independent verification and middleware API layer</strong> that sits between the POS system and the payment processor. It intercepts the transaction total, appends 11&cent;, routes funds to verified food banks (10&cent;) and operations (1&cent;), generates audit-ready tax receipts, and returns a modified receipt &mdash; all without touching the merchant&rsquo;s existing workflow. As an independent third party, DimeTech provides the verification trail that enterprises need when claiming charitable tax deductions.</p>
 
             <div class="diagram">
                 <div class="d-label">POS Systems (Input)</div>
@@ -440,7 +440,7 @@
             </div>
 
             <div class="callout">
-                <p><strong>Key insight:</strong> DimeTech doesn&rsquo;t replace any POS system. It sits on top. The adapter layer handles the differences between systems so the core logic stays the same regardless of which POS the merchant uses.</p>
+                <p><strong>Key insight:</strong> DimeTech doesn&rsquo;t replace any POS system &mdash; it sits on top as an independent verification layer. The adapter handles POS differences; the core handles fund routing, audit trail, and tax compliance. Enterprises need a third party for this: when the IRS audits a $40M charitable deduction, they point to DimeTech&rsquo;s verified records.</p>
             </div>
         </div>
 
