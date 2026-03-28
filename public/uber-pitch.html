@@ -19,139 +19,106 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--white); color: var(--black); font-family: var(--font-b); overflow: hidden; -webkit-font-smoothing: antialiased; }
-
         .deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
-        @media (min-width: 769px) {
-            .deck { max-width: calc(100vh * 16 / 9); max-height: calc(100vw * 9 / 16); margin: auto; position: absolute; inset: 0; }
-        }
-
-        .slide {
-            position: absolute; width: 100%; height: 100%;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 80px 100px;
-            opacity: 0; visibility: hidden; transition: opacity 0.35s ease; overflow: hidden;
-        }
+        @media (min-width: 769px) { .deck { max-width: calc(100vh * 16 / 9); max-height: calc(100vw * 9 / 16); margin: auto; position: absolute; inset: 0; } }
+        .slide { position: absolute; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 100px; opacity: 0; visibility: hidden; transition: opacity 0.35s ease; overflow: hidden; }
         .slide.active { opacity: 1; visibility: visible; }
         .slide.left { align-items: flex-start; text-align: left; }
-
         h1 { font-family: var(--font-h); font-size: clamp(52px, 7vw, 96px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; color: var(--black); }
         h2 { font-family: var(--font-h); font-size: clamp(36px, 4.5vw, 60px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--black); }
         h3 { font-family: var(--font-h); font-size: clamp(24px, 3vw, 36px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; color: var(--black); }
-
         .sub { font-size: clamp(16px, 1.8vw, 21px); line-height: 1.6; max-width: 540px; margin-top: 24px; color: var(--stone-500); }
         .eyebrow { font-family: var(--font-h); font-size: 13px; font-weight: 600; margin-bottom: 16px; color: var(--green); }
         .src { font-size: 10px; color: var(--stone-400); margin-top: 20px; max-width: 520px; line-height: 1.5; }
-
         .dark { background: var(--stone-900); color: var(--white); }
         .dark h1, .dark h2, .dark h3 { color: var(--white); }
         .dark .sub { color: rgba(255,255,255,0.75); }
         .dark .eyebrow { color: var(--green); }
         .dark .src { color: rgba(255,255,255,0.4); }
         .dark .foot { color: rgba(255,255,255,0.2); }
-
         .brand { background: linear-gradient(145deg, #15803D, #16A34A, #22c55e); color: var(--white); }
         .brand h1 { color: var(--white); }
         .brand .eyebrow { color: rgba(255,255,255,0.7); }
         .brand .src { color: rgba(255,255,255,0.5); }
         .brand .foot { color: rgba(255,255,255,0.25); }
-
-        /* Bar compare */
         .bar-compare { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 560px; margin-top: 40px; }
         .bar-label { font-family: var(--font-h); font-size: 13px; font-weight: 500; margin-bottom: 8px; color: var(--stone-500); }
         .bar-track { width: 100%; height: 48px; background: var(--stone-100); border-radius: 6px; overflow: hidden; }
         .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 16px; font-family: var(--font-h); font-size: 20px; font-weight: 700; color: white; }
-
-        /* Flow */
         .flow-visual { display: flex; align-items: center; gap: 8px; margin-top: 48px; }
         .flow-node { display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .flow-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-h); font-size: 22px; font-weight: 700; }
         .flow-circle-label { font-size: 12px; }
         .flow-line { width: 40px; height: 2px; background: var(--stone-300); }
-
-        /* Stats */
         .stats { display: flex; gap: 56px; margin-top: 40px; }
         .stat-n { font-family: var(--font-h); font-size: clamp(32px, 4.5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
         .stat-l { font-size: 13px; margin-top: 6px; color: var(--stone-500); }
-
-        /* Mockup */
         .mockup-frame { margin-top: 32px; border-radius: 12px; border: 1px solid var(--stone-200); box-shadow: 0 16px 40px rgba(0,0,0,0.08); overflow: hidden; max-width: 640px; width: 100%; }
         .mockup-bar { height: 32px; background: var(--stone-50); display: flex; align-items: center; padding: 0 12px; gap: 6px; border-bottom: 1px solid var(--stone-200); }
         .mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--stone-300); }
         .mockup-url { flex: 1; margin-left: 8px; background: var(--white); border: 1px solid var(--stone-200); border-radius: 4px; padding: 2px 8px; font-size: 10px; color: var(--stone-500); }
-
-        /* Team */
-        .team-cards { display: flex; gap: 16px; margin-top: 40px; width: 100%; max-width: 720px; }
-        .team-card { flex: 1; background: var(--white); border: 1px solid var(--stone-200); border-radius: 16px; padding: 32px 24px; text-align: center; }
+        .team-cards { display: flex; gap: 16px; margin-top: 40px; width: 100%; max-width: 760px; }
+        .team-card { flex: 1; background: var(--white); border: 1px solid var(--stone-200); border-radius: 16px; padding: 28px 20px; text-align: center; }
         .team-card.hiring { border-style: dashed; border-color: var(--stone-300); }
-
-        /* Steps */
+        .checks { list-style: none; margin-top: 40px; text-align: left; }
+        .checks li { font-family: var(--font-h); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+        .checks li span { color: rgba(255,255,255,0.5); margin-right: 16px; }
         .steps-visual { display: flex; gap: 20px; margin-top: 48px; }
         .step-box { flex: 1; background: var(--green-50); border: 1px solid var(--green-100); border-radius: 12px; padding: 28px 24px; text-align: left; }
         .step-box .num { font-family: var(--font-h); font-size: 36px; font-weight: 700; color: var(--green); margin-bottom: 12px; }
         .step-box h4 { font-family: var(--font-h); font-size: 16px; font-weight: 600; margin-bottom: 4px; color: var(--black); }
         .step-box p { font-size: 13px; color: var(--stone-500); line-height: 1.5; }
-
-        /* Checks */
-        .checks { list-style: none; margin-top: 40px; text-align: left; }
-        .checks li { font-family: var(--font-h); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
-        .checks li span { color: rgba(255,255,255,0.5); margin-right: 16px; }
-
         .foot { position: absolute; bottom: 20px; left: 100px; right: 100px; font-size: 9px; text-align: center; color: var(--stone-300); }
-
         .bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--green); transition: width 0.3s; z-index: 100; }
         .nav { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; z-index: 100; }
         .nav button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--stone-200); background: var(--white); color: var(--black); cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
         .nav button:hover { background: var(--stone-50); }
         .nav .ct { font-family: var(--font-h); font-size: 12px; color: var(--stone-400); font-variant-numeric: tabular-nums; }
-
-        @media (max-width: 768px) {
-            .slide { padding: 48px 32px; }
-            .foot { left: 32px; right: 32px; }
-            .stats, .team-cards, .steps-visual { flex-direction: column; gap: 20px; }
-            .flow-visual { flex-wrap: wrap; justify-content: center; }
-        }
+        @media (max-width: 768px) { .slide { padding: 48px 32px; } .foot { left: 32px; right: 32px; } .stats, .team-cards, .steps-visual { flex-direction: column; gap: 20px; } .flow-visual { flex-wrap: wrap; justify-content: center; } }
     </style>
 </head>
 <body>
     <div class="bar" id="bar"></div>
     <div class="deck">
 
-    <!-- 1. TITLE -->
+    <!-- 1. TITLE — Larry's framing: profit-first, tech innovation, solve hunger -->
     <div class="slide dark left active" style="background: linear-gradient(to right, rgba(28,25,23,0.94) 0%, rgba(28,25,23,0.8) 50%, rgba(28,25,23,0.55) 100%), url('https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&w=1600') center/cover no-repeat; background-color: #1C1917;">
         <div class="eyebrow">A confidential presentation to Uber Technologies</div>
         <h1 style="color: white;">Dime<span style="color: var(--green);">Tech</span></h1>
-        <p class="sub">Independent charitable donation verification, audit, and tax compliance. Every transaction. Every receipt. Every cent tracked.</p>
-        <p style="font-size: 13px; color: var(--stone-500); margin-top: 56px;">Lazarus Invents Inc. &middot; April 2026</p>
+        <p class="sub" style="font-size: clamp(17px, 2vw, 22px); color: rgba(255,255,255,0.85); max-width: 600px;">A fintech platform to accelerate significant, profitable, global growth for our clients.</p>
+        <p class="sub" style="margin-top: 12px; font-size: 15px;">Independent charitable donation verification, audit, and tax compliance. Every transaction. Every receipt. Every cent tracked.</p>
+        <p style="font-size: 13px; color: var(--stone-500); margin-top: 48px;">Lazarus Invents Inc. &middot; April 2026</p>
         <div class="foot" style="color: rgba(255,255,255,0.15);">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 2. THE PROBLEM — round-up doesn't work -->
+    <!-- 2. THE MECHANISM — automatic, not a donation from the customer -->
     <div class="slide" style="background: var(--white);">
-        <div class="eyebrow" style="color: var(--stone-400);">And the current approach doesn&rsquo;t work</div>
-        <h2>Most customers say no.</h2>
-        <div class="bar-compare">
+        <div class="eyebrow" style="color: var(--stone-400);">How DimeTech works</div>
+        <h2>An automatic addition.<br>Not a customer donation.</h2>
+        <p class="sub" style="max-width: 580px;">DimeTech adds 11&cent; to every transaction automatically. It&rsquo;s not a round-up. It&rsquo;s not an opt-in. It becomes <strong style="color: var(--black);">Uber&rsquo;s charitable donation</strong>, with appropriate tax deductions.</p>
+        <p class="sub" style="margin-top: 16px; font-size: 15px;">Because most people turn down &ldquo;round up,&rdquo; &ldquo;contribute the change,&rdquo; and &ldquo;add a dollar&rdquo; &mdash; we designed DimeAid to require no opt-in. 100% participation.</p>
+        <div class="bar-compare" style="margin-top: 32px;">
             <div>
-                <div class="bar-label">Round-up opt-in</div>
+                <div class="bar-label">Round-up / add a dollar</div>
                 <div class="bar-track"><div class="bar-fill" style="width: 50%; background: var(--stone-400);">~50%</div></div>
             </div>
             <div>
-                <div class="bar-label">DimeTech participation</div>
+                <div class="bar-label">DimeAid (automatic)</div>
                 <div class="bar-track" style="background: var(--green-50);"><div class="bar-fill" style="width: 100%; background: var(--green);">100%</div></div>
             </div>
         </div>
-        <p class="sub">No prompts. No friction. Automatic. Every transaction participates &mdash; and every cent is independently verified.</p>
-        <p class="src">~50% say yes at least once, but per-transaction rates are far lower. Source: Binghamton University / JPNA 2024. POS campaigns raised $749M in 2022 (Engage for Good).</p>
+        <p class="src">~50% say yes at least once, per-transaction rates far lower. Source: Binghamton University / JPNA 2024. POS campaigns raised $749M in 2022 (Engage for Good).</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 3. THE SOLUTION — how it works -->
+    <!-- 3. THE FLOW — $18.73 + 11¢ = $18.84 -->
     <div class="slide" style="background: var(--white);">
-        <div class="eyebrow">How it works</div>
-        <h2>11&cent; added automatically.</h2>
+        <div class="eyebrow">The money flow</div>
+        <h2>$18.73 becomes $18.84.</h2>
         <div class="flow-visual">
             <div class="flow-node">
                 <div class="flow-circle" style="background: var(--stone-100); color: var(--black);">$18.73</div>
-                <div class="flow-circle-label" style="color: var(--stone-500);">Customer total</div>
+                <div class="flow-circle-label" style="color: var(--stone-500);">Customer bill</div>
             </div>
             <div class="flow-line"></div>
             <div class="flow-node">
@@ -161,87 +128,74 @@
             <div class="flow-line"></div>
             <div class="flow-node">
                 <div class="flow-circle" style="background: var(--green); color: white;">10&cent;</div>
-                <div class="flow-circle-label" style="color: var(--stone-500);">Verified food bank</div>
+                <div class="flow-circle-label" style="color: var(--stone-500);">Certified charities</div>
             </div>
             <div class="flow-node">
                 <div class="flow-circle" style="background: var(--stone-100); color: var(--stone-700);">1&cent;</div>
-                <div class="flow-circle-label" style="color: var(--stone-500);">Audit &amp; ops</div>
+                <div class="flow-circle-label" style="color: var(--stone-500);">Operations &amp; audit</div>
             </div>
         </div>
-        <p class="sub">Not a customer donation. It&rsquo;s <strong style="color: var(--black);">Uber&rsquo;s tax deduction</strong>, independently verified.</p>
-        <p class="src">10&cent; routed to partnered food banks (Daily Bread, Second Harvest). 1&cent; covers verification &amp; ops. Tax deductibility subject to legal review per IRC &sect;170.</p>
+        <p class="sub">New total: <strong style="color: var(--black);">$18.84.</strong> 10&cent; is Uber&rsquo;s donation to certified charities &mdash; and therefore Uber&rsquo;s tax deduction. 1&cent; funds DimeTech&rsquo;s verification and operations.</p>
+        <p class="src">Funds flow through DimeTech, then disbursed to certified charities on a weekly/monthly basis. Tax receipts generated on the same schedule. Subject to legal review per IRC &sect;170.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 4. THE OBJECTION — why not build it -->
+    <!-- 4. WHY NOT BUILD IT — trusted partner framing -->
     <div class="slide left" style="background: var(--white);">
         <div class="eyebrow" style="color: var(--stone-400);">The question you&rsquo;re thinking</div>
         <h2 style="max-width: 580px;">&ldquo;Why wouldn&rsquo;t we just build this?&rdquo;</h2>
-        <p class="sub" style="max-width: 560px;">When the IRS audits a $40M deduction, you need an <strong style="color: var(--black);">independent third party</strong>. That&rsquo;s compliance, not engineering.</p>
+        <p class="sub" style="max-width: 580px;">You absolutely can. But like your outside accountants and lawyers, <strong style="color: var(--black);">this is all we do.</strong> We operate as your trusted partner and prioritize your needs. Independent third-party verification is what makes the tax deduction defensible.</p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; width: 100%; max-width: 640px;">
             <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 14px; padding: 24px; display: flex; align-items: flex-start; gap: 16px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-                </div>
-                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Fund Routing</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Verified delivery to partnered food banks with receipt per transaction</div></div>
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Fund Routing</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Verified delivery to certified charities. Funds held and disbursed weekly/monthly.</div></div>
             </div>
             <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 14px; padding: 24px; display: flex; align-items: flex-start; gap: 16px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                 <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Audit Trail</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">SHA-256 hash per transaction. Every cent tracked and verifiable.</div></div>
             </div>
             <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 14px; padding: 24px; display: flex; align-items: flex-start; gap: 16px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-                </div>
-                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Tax Receipts</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Instant IRS-ready documentation generated for every donation.</div></div>
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Tax Receipts</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Weekly/monthly tabulations and IRS-ready documentation.</div></div>
             </div>
             <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 14px; padding: 24px; display: flex; align-items: flex-start; gap: 16px;">
-                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
-                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Live Reporting</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Real-time compliance dashboard for partners and auditors.</div></div>
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--green-50); display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <div><div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Live Reporting</div><div style="font-size: 13px; color: var(--stone-500); margin-top: 4px; line-height: 1.45;">Real-time compliance dashboard for partners, auditors, and consumers.</div></div>
             </div>
         </div>
         <p class="src">IRS requires substantiation for deductions over $250 (IRC &sect;170(f)(8)). Independent verification strengthens audit defense.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 5. INTEGRATION — how it plugs in -->
+    <!-- 5. INTEGRATION — POS architecture -->
     <div class="slide" style="background: var(--white);">
         <div class="eyebrow">Integration</div>
         <h2>Works with any POS system.</h2>
         <p class="sub" style="max-width: 540px;">One middleware layer. No changes to Uber&rsquo;s existing stack.</p>
         <div style="display: flex; align-items: center; gap: 12px; margin-top: 40px; max-width: 680px; width: 100%;">
-            <!-- POS systems -->
             <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Toast</div>
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Square</div>
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Clover</div>
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 13px; font-weight: 500; color: var(--stone-400); text-align: center;">Any POS</div>
             </div>
-            <!-- Arrow -->
             <div style="color: var(--stone-300); font-size: 20px; flex-shrink: 0;">&rarr;</div>
-            <!-- DimeTech -->
             <div style="flex: 1; background: var(--green-50); border: 2px solid var(--green-100); border-radius: 12px; padding: 24px; text-align: center;">
                 <div style="font-family: var(--font-h); font-size: 18px; font-weight: 700; color: var(--green);">DimeTech API</div>
                 <div style="font-size: 12px; color: var(--stone-500); margin-top: 6px; line-height: 1.4;">Verification &bull; Audit &bull; Tax receipts &bull; Reporting</div>
             </div>
-            <!-- Arrow -->
             <div style="color: var(--stone-300); font-size: 20px; flex-shrink: 0;">&rarr;</div>
-            <!-- Outputs -->
             <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
-                <div style="background: var(--green); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: white; text-align: center;">Food Banks</div>
+                <div style="background: var(--green); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: white; text-align: center;">Certified Charities</div>
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Tax Receipts</div>
                 <div style="background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 8px; padding: 10px 20px; font-family: var(--font-h); font-size: 14px; font-weight: 600; color: var(--black); text-align: center;">Audit Log</div>
             </div>
         </div>
-        <p class="src">Priority integrations (Toast, Square, Clover) cover ~60% of North American restaurant POS market. Each adapter reuses the same core verification logic. Full technical spec: dimeaid-mvp.vercel.app/pos-integration-spec.html</p>
+        <p class="src">Priority integrations (Toast, Square, Clover) cover ~60% of North American restaurant POS market. Full technical spec: dimeaid-mvp.vercel.app/pos-integration-spec.html</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 6. THE MONEY — merged: impact + what Uber keeps -->
+    <!-- 6. THE MONEY — transactions, not trips -->
     <div class="slide" style="background: var(--stone-50);">
         <div class="eyebrow">The financial impact to Uber</div>
         <h2>What this is worth.</h2>
@@ -259,11 +213,11 @@
                 <div class="stat-l">Cumulative tax savings, 5 years</div>
             </div>
         </div>
-        <p class="src">Based on ~2B qualifying trips/year (Uber reported 11.2B total trips in 2024). Tax savings assumes ~18% effective rate on donations. 18-month ramp. All estimates pending legal review.</p>
+        <p class="src">Based on ~2B qualifying transactions/year (Uber reported 11.2B total transactions in 2024). Tax savings assumes ~18% effective rate on donations. 18-month ramp. All estimates pending legal review.</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 6. THE PRICE — $0 to Uber -->
+    <!-- 7. $0 TO UBER -->
     <div class="slide brand">
         <div class="eyebrow">The cost to Uber</div>
         <h1>$0.</h1>
@@ -273,37 +227,15 @@
             <li><span>&bull;</span>Zero revenue share</li>
             <li><span>&bull;</span>Exclusive partnership rights available</li>
         </ul>
-        <p class="src">DimeTech is funded by the 1&cent; operational fee built into each 11&cent; surcharge. Partners pay nothing.</p>
+        <p class="src" style="color: rgba(255,255,255,0.5);">DimeTech is funded by the 1&cent; operational fee built into each 11&cent; addition. Partners pay nothing.</p>
         <div class="foot" style="color: rgba(255,255,255,0.2);">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 7. WHY NOW — brand trust -->
-    <div class="slide left" style="background: var(--stone-50);">
-        <div class="eyebrow">The bigger picture</div>
-        <h2>Brand trust is the<br>new competitive edge.</h2>
-        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 32px; max-width: 600px;">
-            <div style="display: flex; align-items: flex-start; gap: 14px;">
-                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0;"></div>
-                <p style="font-size: 15px; color: var(--stone-700); line-height: 1.55;">Consumers and regulators are demanding <strong style="color: var(--black);">verifiable social impact</strong> &mdash; not just promises</p>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 14px;">
-                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0;"></div>
-                <p style="font-size: 15px; color: var(--stone-700); line-height: 1.55;">Companies that <strong style="color: var(--black);">self-report charitable impact</strong> face growing skepticism &mdash; independent verification is becoming the standard</p>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 14px;">
-                <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0;"></div>
-                <p style="font-size: 15px; color: var(--stone-700); line-height: 1.55;">Uber is uniquely positioned to <strong style="color: var(--black);">lead this shift</strong> &mdash; with the transaction volume to make a real dent in food insecurity</p>
-            </div>
-        </div>
-        <p class="sub" style="margin-top: 24px; max-width: 560px;">The question isn&rsquo;t whether Uber will invest in social impact. It&rsquo;s whether that impact is self-reported or independently verified.</p>
-        <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
-    </div>
-
-    <!-- 8. FUTURE-PROOF — agentic commerce -->
+    <!-- 8. AGENTIC COMMERCE — future-proof -->
     <div class="slide left" style="background: var(--white);">
         <div class="eyebrow">Future-proof</div>
         <h2>Built for agentic commerce.</h2>
-        <p class="sub" style="max-width: 580px;">Google Gemini already places Uber Eats orders autonomously. Visa and Mastercard are building payment rails for AI agents. As autonomous transactions scale, DimeTech&rsquo;s verification layer becomes infrastructure &mdash; not optional.</p>
+        <p class="sub" style="max-width: 580px;">Google Gemini already places Uber Eats orders autonomously. Visa and Mastercard are building payment rails for AI agents. As autonomous transactions scale, DimeTech&rsquo;s verification layer becomes infrastructure.</p>
         <div style="display: flex; gap: 14px; margin-top: 32px; max-width: 580px;">
             <div style="flex: 1; background: var(--stone-50); border: 1px solid var(--stone-200); border-radius: 12px; padding: 20px;">
                 <div style="font-family: var(--font-h); font-size: 28px; font-weight: 700; color: var(--green);">$5T</div>
@@ -318,71 +250,81 @@
                 <div style="font-size: 11px; color: var(--stone-500); margin-top: 4px;">YoY growth in AI retail traffic (Adobe)</div>
             </div>
         </div>
-        <p class="sub" style="margin-top: 24px; max-width: 560px;">AI agents don&rsquo;t ask &ldquo;would you like to round up?&rdquo; They just transact. DimeTech works at machine speed, verifying every cent without a human in the loop.</p>
-        <p class="src">McKinsey ($3-5T by 2030). Adobe (4,700% YoY Jul 2025). Visa agentic commerce pilot &amp; Mastercard Agent Pay (2025). Google Gemini x Uber/DoorDash (2025).</p>
+        <p class="sub" style="margin-top: 24px;">AI agents don&rsquo;t ask &ldquo;would you like to round up?&rdquo; They just transact. DimeTech works at machine speed.</p>
+        <p class="src">McKinsey ($3-5T by 2030). Adobe (4,700% YoY Jul 2025). Visa &amp; Mastercard Agent Pay (2025). Google Gemini x Uber/DoorDash (2025).</p>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 9. DEMO -->
+    <!-- 9. DEMO — deeper, show what we've built -->
     <div class="slide" style="background: var(--stone-50);">
         <div class="eyebrow">Live product</div>
-        <h2>See it working.</h2>
-        <p class="sub">The MVP is live today.</p>
-        <div class="mockup-frame">
-            <div class="mockup-bar">
-                <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
-                <div class="mockup-url">dimeaid-mvp.vercel.app</div>
-            </div>
-            <div style="width: 100%; height: 260px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
-                <div style="font-family: var(--font-h); font-size: 28px; font-weight: 700; color: var(--black);">Dime<span style="color: var(--green);">Aid</span></div>
-                <div style="font-size: 14px; color: var(--stone-400);">End hunger, one order at a time</div>
-                <a href="https://dimeaid-mvp.vercel.app" target="_blank" style="margin-top: 8px; padding: 10px 24px; background: var(--green); color: white; border-radius: 6px; text-decoration: none; font-family: var(--font-h); font-size: 14px; font-weight: 600;">Open Live Demo &rarr;</a>
-            </div>
+        <h2>We built it. It works.</h2>
+        <p class="sub">Everything below is live today &mdash; consumer checkout, money flow, partner materials, and checkout comparison.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; max-width: 580px; width: 100%;">
+            <a href="https://dimeaid-mvp.vercel.app" target="_blank" style="display: block; padding: 20px; background: var(--white); border: 1px solid var(--stone-200); border-radius: 12px; text-decoration: none;">
+                <div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Consumer Experience</div>
+                <div style="font-size: 13px; color: var(--stone-500); margin-top: 4px;">The checkout flow customers see</div>
+            </a>
+            <a href="https://dimeaid-mvp.vercel.app/how-it-works" target="_blank" style="display: block; padding: 20px; background: var(--white); border: 1px solid var(--stone-200); border-radius: 12px; text-decoration: none;">
+                <div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Money Flow &amp; Audit</div>
+                <div style="font-size: 13px; color: var(--stone-500); margin-top: 4px;">Every cent tracked and verifiable</div>
+            </a>
+            <a href="https://dimeaid-mvp.vercel.app/compare" target="_blank" style="display: block; padding: 20px; background: var(--white); border: 1px solid var(--stone-200); border-radius: 12px; text-decoration: none;">
+                <div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Checkout Comparison</div>
+                <div style="font-size: 13px; color: var(--stone-500); margin-top: 4px;">DimeTech vs round-up side by side</div>
+            </a>
+            <a href="https://dimeaid-mvp.vercel.app/partner-kit" target="_blank" style="display: block; padding: 20px; background: var(--white); border: 1px solid var(--stone-200); border-radius: 12px; text-decoration: none;">
+                <div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--black);">Partner Materials</div>
+                <div style="font-size: 13px; color: var(--stone-500); margin-top: 4px;">In-store signage and digital assets</div>
+            </a>
         </div>
-        <div style="display: flex; gap: 24px; margin-top: 20px;">
-            <a href="https://dimeaid-mvp.vercel.app/how-it-works" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Money Flow &rarr;</a>
-            <a href="https://dimeaid-mvp.vercel.app/compare" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Comparison &rarr;</a>
-            <a href="https://dimeaid-mvp.vercel.app/partner-kit" target="_blank" style="font-size: 13px; color: var(--green); text-decoration: none; font-weight: 500;">Partner Kit &rarr;</a>
-        </div>
+        <a href="https://dimeaid-mvp.vercel.app/pos-integration-spec.html" target="_blank" style="display: block; margin-top: 14px; max-width: 580px; padding: 16px 20px; background: var(--green-50); border: 1px solid var(--green-100); border-radius: 12px; text-decoration: none;">
+            <div style="font-family: var(--font-h); font-size: 15px; font-weight: 600; color: var(--green);">Technical Spec: POS Integration Architecture</div>
+            <div style="font-size: 13px; color: var(--stone-500); margin-top: 4px;">How DimeTech plugs into Toast, Square, Clover, and any POS system</div>
+        </a>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 10. TEAM -->
+    <!-- 10. TEAM + ADVISORS -->
     <div class="slide" style="background: var(--stone-50);">
         <div class="eyebrow">The team</div>
         <h2>Built by operators.</h2>
         <div class="team-cards">
             <div class="team-card">
-                <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: var(--font-h); font-size: 22px; font-weight: 700; color: white;">LB</div>
-                <div style="font-family: var(--font-h); font-size: 17px; font-weight: 600; color: var(--black);">Larry Bleau</div>
-                <div style="font-size: 13px; color: var(--green); font-weight: 500; margin-top: 2px;">Founder &amp; CEO</div>
-                <div style="font-size: 13px; color: var(--stone-500); margin-top: 12px; line-height: 1.5;">Decades in business development and strategic partnerships across North America.</div>
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: var(--font-h); font-size: 20px; font-weight: 700; color: white;">LB</div>
+                <div style="font-family: var(--font-h); font-size: 16px; font-weight: 600; color: var(--black);">Larry Bleau</div>
+                <div style="font-size: 12px; color: var(--green); font-weight: 500; margin-top: 2px;">Founder &amp; CEO</div>
+                <div style="font-size: 12px; color: var(--stone-500); margin-top: 10px; line-height: 1.5;">Decades in business development. Led a $350M+ annual revenue generation operation across 7 global offices.</div>
             </div>
             <div class="team-card">
-                <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: var(--font-h); font-size: 22px; font-weight: 700; color: white;">HT</div>
-                <div style="font-family: var(--font-h); font-size: 17px; font-weight: 600; color: var(--black);">Haruka Takamori</div>
-                <div style="font-size: 13px; color: var(--green); font-weight: 500; margin-top: 2px;">COO &amp; Head of Product</div>
-                <div style="font-size: 13px; color: var(--stone-500); margin-top: 12px; line-height: 1.5;">Built the DimeTech MVP, verification system, POS architecture, and all partner materials.</div>
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: var(--font-h); font-size: 20px; font-weight: 700; color: white;">HT</div>
+                <div style="font-family: var(--font-h); font-size: 16px; font-weight: 600; color: var(--black);">Haruka Takamori</div>
+                <div style="font-size: 12px; color: var(--green); font-weight: 500; margin-top: 2px;">COO &amp; Head of Product</div>
+                <div style="font-size: 12px; color: var(--stone-500); margin-top: 10px; line-height: 1.5;">Built the DimeTech MVP, verification system, POS architecture, and all partner materials.</div>
             </div>
             <div class="team-card hiring">
-                <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-family: var(--font-h); font-size: 22px; font-weight: 700; color: var(--stone-400);">?</div>
-                <div style="font-family: var(--font-h); font-size: 17px; font-weight: 600; color: var(--stone-400);">Hiring</div>
-                <div style="font-size: 13px; color: var(--green); font-weight: 500; margin-top: 2px;">CTO</div>
-                <div style="font-size: 13px; color: var(--stone-400); margin-top: 12px; line-height: 1.5;">Senior technical leader with fintech infrastructure and POS integration experience.</div>
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-family: var(--font-h); font-size: 20px; font-weight: 700; color: var(--stone-400);">?</div>
+                <div style="font-family: var(--font-h); font-size: 16px; font-weight: 600; color: var(--stone-400);">Hiring</div>
+                <div style="font-size: 12px; color: var(--green); font-weight: 500; margin-top: 2px;">CTO</div>
+                <div style="font-size: 12px; color: var(--stone-400); margin-top: 10px; line-height: 1.5;">Senior technical leader with fintech infrastructure and POS integration experience.</div>
             </div>
+        </div>
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--stone-200); max-width: 760px; width: 100%;">
+            <div style="font-family: var(--font-h); font-size: 13px; font-weight: 600; color: var(--stone-400); margin-bottom: 8px;">Advisors</div>
+            <div style="font-size: 13px; color: var(--stone-500); line-height: 1.6;">Compliance, audit, and tax advisory board being assembled to ensure regulatory rigor and institutional credibility.</div>
         </div>
         <div class="foot">DimeTech and DimeAid &copy; Larry Bleau &amp; Lazarus Invents Inc. Confidential.</div>
     </div>
 
-    <!-- 11. NEXT STEPS -->
+    <!-- 11. NEXT STEPS — no "pilot" language, stealth launch -->
     <div class="slide" style="background: var(--white);">
         <div class="eyebrow">Next steps</div>
         <h2>Let&rsquo;s end hunger together.</h2>
         <p class="sub">First-mover exclusivity is available now.</p>
         <div class="steps-visual">
             <div class="step-box"><div class="num">1</div><h4>Technical review</h4><p>API walkthrough and integration assessment</p></div>
-            <div class="step-box"><div class="num">2</div><h4>Pilot market</h4><p>Select launch market and partner cohort</p></div>
-            <div class="step-box"><div class="num">3</div><h4>Go live</h4><p>Launch with media campaign support</p></div>
+            <div class="step-box"><div class="num">2</div><h4>Stealth development</h4><p>Build, test, and validate in a controlled environment</p></div>
+            <div class="step-box"><div class="num">3</div><h4>Launch</h4><p>Go live with full media campaign support</p></div>
         </div>
         <div style="margin-top: 48px;">
             <p style="font-family: var(--font-h); font-size: 17px; font-weight: 600; color: var(--black);">Larry Bleau</p>
@@ -395,7 +337,7 @@
 
     <nav class="nav">
         <button onclick="go(-1)" aria-label="Previous"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
-        <span class="ct"><span id="c">1</span> / <span id="t">12</span></span>
+        <span class="ct"><span id="c">1</span> / <span id="t">11</span></span>
         <button onclick="go(1)" aria-label="Next"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
     </nav>
 
@@ -404,17 +346,9 @@
         const slides = document.querySelectorAll('.deck > .slide');
         const tot = slides.length;
         document.getElementById('t').textContent = tot;
-        function show(n) {
-            cur = Math.max(1, Math.min(n, tot));
-            slides.forEach((s, i) => s.classList.toggle('active', i === cur - 1));
-            document.getElementById('c').textContent = cur;
-            document.getElementById('bar').style.width = (cur / tot * 100) + '%';
-        }
+        function show(n) { cur = Math.max(1, Math.min(n, tot)); slides.forEach((s, i) => s.classList.toggle('active', i === cur - 1)); document.getElementById('c').textContent = cur; document.getElementById('bar').style.width = (cur / tot * 100) + '%'; }
         function go(d) { show(cur + d); }
-        document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
-            if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
-        });
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
         let tx = 0;
         document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
         document.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].clientX; if (Math.abs(d) > 50) go(d > 0 ? 1 : -1); });
