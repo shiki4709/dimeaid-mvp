@@ -396,7 +396,7 @@
         <!-- Architecture Overview -->
         <div class="section">
             <h2>Architecture Overview</h2>
-            <p>DimeTech operates as an <strong style="color: var(--color-text);">independent verification and middleware API layer</strong> that sits between the POS system and the payment processor. It intercepts the transaction total, appends 11&cent;, routes funds to verified food banks (10&cent;) and operations (1&cent;), generates audit-ready tax receipts, and returns a modified receipt &mdash; all without touching the merchant&rsquo;s existing workflow. As an independent third party, DimeTech provides the verification trail that enterprises need when claiming charitable tax deductions.</p>
+            <p>DimeTech operates as an <strong style="color: var(--color-text);">independent verification and middleware API layer</strong> that sits between the POS system and the payment processor. It intercepts the transaction total, appends 11&cent;, routes funds to verified certified charities (10&cent;) and operations (1&cent;), generates audit-ready tax receipts, and returns a modified receipt &mdash; all without touching the merchant&rsquo;s existing workflow. As an independent third party, DimeTech provides the verification trail that enterprises need when claiming charitable tax deductions.</p>
 
             <div class="diagram">
                 <div class="d-label">POS Systems (Input)</div>
@@ -432,7 +432,7 @@
 
                 <div class="d-label">Outputs</div>
                 <div class="d-bracket">
-                    <div class="d-box d-output">10&cent; &rarr; Food Bank</div>
+                    <div class="d-box d-output">10&cent; &rarr; Certified Charities</div>
                     <div class="d-box d-output">1&cent; &rarr; Operations</div>
                     <div class="d-box d-output">Tax Receipt</div>
                     <div class="d-box d-output">Audit Log</div>
@@ -440,7 +440,7 @@
             </div>
 
             <div class="callout">
-                <p><strong>Key insight:</strong> DimeTech doesn&rsquo;t replace any POS system &mdash; it sits on top as an independent verification layer. The adapter handles POS differences; the core handles fund routing, audit trail, and tax compliance. Enterprises need a third party for this: when the IRS audits a $40M charitable deduction, they point to DimeTech&rsquo;s verified records.</p>
+                <p><strong>Key insight:</strong> DimeTech doesn&rsquo;t replace any POS system &mdash; it sits on top as an independent verification layer. The adapter handles POS differences; the core handles fund routing, audit trail, and tax compliance. Enterprises need a third party for this: when the CRA (Canada Revenue Agency) audits a $13M+ charitable deduction, they point to DimeTech&rsquo;s verified records.</p>
             </div>
         </div>
 
@@ -493,7 +493,7 @@
             <p>The DimeTech API exposes a simple REST interface. POS adapters call this internally, but it can also be called directly for custom integrations.</p>
 
             <h3>POST /v1/transactions</h3>
-            <p>Called when a transaction is completed. Appends the DimeTech surcharge and returns the split.</p>
+            <p>Called when a transaction is completed. Appends the DimeTech contribution (not a surcharge &mdash; built into the price) and returns the split.</p>
 
             <div class="code-block">
 <span class="comment">// Request</span>
@@ -505,7 +505,7 @@ Content-Type: application/json
   <span class="key">"pos_system"</span>: <span class="string">"toast"</span>,
   <span class="key">"transaction_id"</span>: <span class="string">"txn_8847291"</span>,
   <span class="key">"amount_cents"</span>: <span class="number">1873</span>,
-  <span class="key">"currency"</span>: <span class="string">"USD"</span>,
+  <span class="key">"currency"</span>: <span class="string">"CAD"</span>,
   <span class="key">"timestamp"</span>: <span class="string">"2026-04-15T14:32:00Z"</span>
 }
             </div>
@@ -516,13 +516,13 @@ Content-Type: application/json
   <span class="key">"status"</span>: <span class="string">"success"</span>,
   <span class="key">"dimetech_id"</span>: <span class="string">"dt_0847291"</span>,
   <span class="key">"original_amount_cents"</span>: <span class="number">1873</span>,
-  <span class="key">"surcharge_cents"</span>: <span class="number">11</span>,
+  <span class="key">"contribution_cents"</span>: <span class="number">11</span>,  <span class="comment">// not a surcharge — built into the price</span>
   <span class="key">"final_amount_cents"</span>: <span class="number">1884</span>,
   <span class="key">"split"</span>: {
     <span class="key">"charity_cents"</span>: <span class="number">10</span>,
     <span class="key">"operations_cents"</span>: <span class="number">1</span>
   },
-  <span class="key">"charity_recipient"</span>: <span class="string">"Daily Bread Food Bank"</span>,
+  <span class="key">"charity_recipient"</span>: <span class="string">"Daily Bread (Certified Charity)"</span>,
   <span class="key">"tax_receipt_url"</span>: <span class="string">"https://api.dimetech.io/receipts/dt_0847291"</span>,
   <span class="key">"audit_hash"</span>: <span class="string">"sha256:9f3c...a1e7"</span>
 }
