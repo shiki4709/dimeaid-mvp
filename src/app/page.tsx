@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "DimeAid \u2014 Every Transaction Fights Hunger",
+  title: "DimeTech \u2014 Every Transaction Fights Hunger",
   description:
-    "DimeAid adds 11 cents to every transaction \u2014 10 cents to food banks, 1 cent to verified operations. Independent third-party verification for tax compliance.",
+    "DimeTech adds 11 cents to every transaction \u2014 10 cents to food banks, 1 cent to verified operations. Independent third-party verification for tax compliance.",
 };
 
 export default function LandingPage() {
@@ -18,11 +18,11 @@ export default function LandingPage() {
         <div className="mx-auto flex max-w-[1120px] items-center justify-between px-6 py-4 lg:px-12">
           <div className="flex items-center gap-2.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg text-sm font-semibold" style={{ background: "linear-gradient(135deg, #5C534A, #44403C)", color: "#FAF9F7" }}>D</div>
-            <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "18px", color: "#2C2825" }}>DimeAid</span>
+            <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "18px", color: "#2C2825" }}>DimeTech</span>
           </div>
           <div className="flex items-center gap-6">
             <Link href="#how" className="hidden text-sm md:block" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279", fontWeight: 500 }}>How It Works</Link>
-            <Link href="#why" className="hidden text-sm md:block" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279", fontWeight: 500 }}>Why DimeAid</Link>
+            <Link href="#why" className="hidden text-sm md:block" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279", fontWeight: 500 }}>Why DimeTech</Link>
             <a href="mailto:larry@lazarusbleau.com" className="rounded-lg px-5 py-2 text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "linear-gradient(135deg, #5C534A, #44403C)", color: "#FAF9F7", fontWeight: 600 }}>Partner With Us</a>
           </div>
         </div>
@@ -47,9 +47,9 @@ export default function LandingPage() {
                 Start a Conversation
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
-              <Link href="/demo" className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279", fontWeight: 500 }}>
-                See the demo &rarr;
-              </Link>
+              <a href="mailto:larry@lazarusbleau.com" className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279", fontWeight: 500 }}>
+                Or email us directly &rarr;
+              </a>
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@ export default function LandingPage() {
       {/* ─── WHY DIMEAID ──────────────────────────── */}
       <section id="why" className="px-6 lg:px-12" style={{ paddingTop: "clamp(48px, 6vw, 80px)", paddingBottom: "clamp(64px, 10vw, 110px)" }}>
         <div className="mx-auto max-w-[1120px]">
-          <p className="text-xs uppercase tracking-[0.12em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>Why DimeAid</p>
+          <p className="text-xs uppercase tracking-[0.12em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>Why DimeTech</p>
           <h2 className="mt-3 max-w-[480px]" style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(28px, 4vw, 42px)", lineHeight: 1.12, letterSpacing: "-0.01em", color: "#2C2825" }}>
             Any company can add a surcharge. Only we verify it.
           </h2>
@@ -216,17 +216,13 @@ export default function LandingPage() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="flex items-center gap-2.5">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg text-xs font-semibold" style={{ background: "linear-gradient(135deg, #8B7355, #6B5D4D)", color: "#FAF9F7" }}>D</div>
-              <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: "#E8E4DF" }}>DimeAid</span>
+              <span style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: "#E8E4DF" }}>DimeTech</span>
               <span className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B6259" }}>by Lazarus Invents</span>
             </div>
             <div className="flex flex-wrap items-center gap-5">
-              {([
-                { href: "/demo", label: "Demo" },
-                { href: "/how-it-works", label: "How It Works" },
-                { href: "/partner-kit", label: "Partner Kit" },
-              ] as const).map((link) => (
-                <Link key={link.label} href={link.href} className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>{link.label}</Link>
-              ))}
+              <Link href="#how" className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>How It Works</Link>
+              <Link href="#why" className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>Why DimeTech</Link>
+              <a href="mailto:larry@lazarusbleau.com" className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>Contact</a>
             </div>
           </div>
           <p className="mt-8 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#5C534A" }}>
