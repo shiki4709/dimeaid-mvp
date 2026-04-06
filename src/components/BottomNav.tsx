@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { Home, Search, ClipboardList, User } from "lucide-react";
 
 const navItems = [
-  { href: "/", icon: Home, label: "Home" },
+  { href: "/demo", icon: Home, label: "Home" },
   { href: "#", icon: Search, label: "Browse" },
   { href: "#", icon: ClipboardList, label: "Orders" },
   { href: "/account", icon: User, label: "Account" },
 ] as const;
 
-const hiddenPaths = ["/compare", "/how-it-works", "/partner-kit"];
+const hiddenPaths = ["/", "/compare", "/how-it-works", "/partner-kit"];
 
 export default function BottomNav() {
   const pathname = usePathname();
