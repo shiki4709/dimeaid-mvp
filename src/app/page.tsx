@@ -34,6 +34,32 @@ export default function LandingPage() {
         style={{ paddingTop: "clamp(80px, 12vw, 140px)", paddingBottom: "clamp(60px, 8vw, 100px)" }}
       >
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 60% at 70% 0%, rgba(139,115,85,0.04), transparent 70%), radial-gradient(ellipse 50% 40% at 0% 100%, rgba(92,83,74,0.03), transparent)" }} />
+
+        {/* Hero geometric decoration */}
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 md:block" aria-hidden="true">
+          <svg className="absolute right-6 top-16 lg:right-12" width="420" height="420" viewBox="0 0 420 420" fill="none">
+            {/* Large ring */}
+            <circle cx="210" cy="210" r="180" stroke="#E8E4DF" strokeWidth="1" />
+            <circle cx="210" cy="210" r="140" stroke="#D5CFC8" strokeWidth="0.5" strokeDasharray="4 6" />
+            {/* Intersecting arcs */}
+            <path d="M90 210 A120 120 0 0 1 210 90" stroke="#C4BBB0" strokeWidth="0.75" fill="none" />
+            <path d="M330 210 A120 120 0 0 1 210 330" stroke="#C4BBB0" strokeWidth="0.75" fill="none" />
+            {/* Accent dots */}
+            <circle cx="210" cy="30" r="4" fill="#8B7355" opacity="0.25" />
+            <circle cx="390" cy="210" r="3" fill="#8B7355" opacity="0.2" />
+            <circle cx="210" cy="390" r="4" fill="#8B7355" opacity="0.15" />
+            <circle cx="30" cy="210" r="3" fill="#8B7355" opacity="0.2" />
+            {/* Diagonal line */}
+            <line x1="90" y1="90" x2="330" y2="330" stroke="#D5CFC8" strokeWidth="0.5" strokeDasharray="6 8" />
+            {/* Small filled circles at intersections */}
+            <circle cx="150" cy="150" r="6" fill="#8B7355" opacity="0.08" />
+            <circle cx="270" cy="270" r="8" fill="#8B7355" opacity="0.06" />
+            {/* Floating squares */}
+            <rect x="280" y="80" width="24" height="24" rx="4" stroke="#C4BBB0" strokeWidth="0.75" fill="none" transform="rotate(15 292 92)" />
+            <rect x="100" y="300" width="18" height="18" rx="3" stroke="#D5CFC8" strokeWidth="0.75" fill="#8B7355" opacity="0.04" transform="rotate(-10 109 309)" />
+          </svg>
+        </div>
+
         <div className="relative mx-auto max-w-[1120px]">
           <div className="max-w-[640px]">
             <h1 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#2C2825" }}>
@@ -166,7 +192,7 @@ export default function LandingPage() {
             ] as const).map((item, i) => (
               <div
                 key={item.label}
-                className="rounded-xl p-6 md:p-7"
+                className="relative overflow-hidden rounded-xl p-6 md:p-7"
                 style={{
                   background: i === 0
                     ? "linear-gradient(160deg, #F3F0EC 0%, #EBE7E2 100%)"
@@ -175,7 +201,13 @@ export default function LandingPage() {
                     : "linear-gradient(160deg, #ECE8E3 0%, #E5E0DA 100%)",
                 }}
               >
-                <span className="text-xs uppercase tracking-[0.1em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>{item.label}</span>
+                {/* Card geometric accent */}
+                <svg className="pointer-events-none absolute -right-4 -top-4" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                  {i === 0 && <circle cx="40" cy="40" r="32" stroke="#C4BBB0" strokeWidth="0.75" opacity="0.4" />}
+                  {i === 1 && <rect x="12" y="12" width="56" height="56" rx="8" stroke="#C4BBB0" strokeWidth="0.75" opacity="0.4" transform="rotate(12 40 40)" />}
+                  {i === 2 && <><polygon points="40,8 72,60 8,60" stroke="#C4BBB0" strokeWidth="0.75" fill="none" opacity="0.4" /><circle cx="40" cy="42" r="12" stroke="#C4BBB0" strokeWidth="0.5" opacity="0.25" /></>}
+                </svg>
+                <span className="relative text-xs uppercase tracking-[0.1em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>{item.label}</span>
                 <h3 className="mt-3" style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "20px", lineHeight: 1.25, color: "#2C2825" }}>{item.head}</h3>
                 <p className="mt-2 text-sm leading-relaxed" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>{item.body}</p>
               </div>
@@ -187,6 +219,20 @@ export default function LandingPage() {
       {/* ─── CTA ──────────────────────────────────── */}
       <section className="relative overflow-hidden px-6 lg:px-12" style={{ paddingTop: "clamp(80px, 12vw, 140px)", paddingBottom: "clamp(80px, 12vw, 140px)" }}>
         <div className="absolute inset-0" style={{ background: "linear-gradient(170deg, #FAF9F7 0%, #F0ECE7 40%, #E5E0DA 100%)" }} />
+
+        {/* CTA geometric decoration */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <svg className="absolute right-8 top-1/2 hidden -translate-y-1/2 md:block" width="300" height="300" viewBox="0 0 300 300" fill="none">
+            <circle cx="150" cy="150" r="120" stroke="#D5CFC8" strokeWidth="0.75" />
+            <circle cx="150" cy="150" r="80" stroke="#C4BBB0" strokeWidth="0.5" strokeDasharray="3 5" />
+            <circle cx="150" cy="150" r="40" fill="#8B7355" opacity="0.03" />
+            <line x1="30" y1="150" x2="270" y2="150" stroke="#D5CFC8" strokeWidth="0.5" />
+            <line x1="150" y1="30" x2="150" y2="270" stroke="#D5CFC8" strokeWidth="0.5" />
+            <circle cx="150" cy="30" r="3" fill="#8B7355" opacity="0.15" />
+            <circle cx="270" cy="150" r="3" fill="#8B7355" opacity="0.15" />
+          </svg>
+        </div>
+
         <div className="relative mx-auto max-w-[1120px]">
           <div className="max-w-[520px]">
             <h2 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#2C2825" }}>
