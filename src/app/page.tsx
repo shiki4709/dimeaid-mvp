@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "DimeTech \u2014 Every Transaction Fights Hunger",
   description:
-    "DimeTech turns every transaction into a tax-deductible charitable contribution. 10 cents to food banks, fully verified, zero customer friction.",
+    "DimeTech turns everyday commerce into a force for good. Verified charitable impact, real tax deductions, zero customer friction.",
 };
 
 export default function LandingPage() {
@@ -37,10 +37,10 @@ export default function LandingPage() {
         <div className="relative mx-auto max-w-[1120px]">
           <div className="max-w-[640px]">
             <h1 style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#2C2825" }}>
-              Turn every transaction into a charitable tax deduction.
+              Turn everyday commerce into a force for good.
             </h1>
             <p className="mt-5 max-w-[480px] text-lg leading-relaxed" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B6259" }}>
-              DimeTech adds 11&cent; to every transaction&mdash;10&cent; goes directly to food banks, your company gets the tax receipt. Customers see nothing different.
+              DimeTech embeds verified charitable giving into every transaction&mdash;invisibly. Your business gains a tax deduction, a brand story, and real community impact. Your customers notice nothing different.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="mailto:larry@lazarusbleau.com" className="inline-flex items-center gap-2 rounded-lg px-7 py-3.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", background: "linear-gradient(135deg, #5C534A, #44403C)", color: "#FAF9F7", fontWeight: 600, fontSize: "15px" }}>
@@ -60,10 +60,10 @@ export default function LandingPage() {
         <div className="mx-auto max-w-[1120px] px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {([
-              { val: "11\u00A2", lbl: "Per transaction" },
-              { val: "91%", lbl: "Direct to food banks" },
               { val: "$0", lbl: "Cost to partner" },
               { val: "100%", lbl: "Verified &amp; auditable" },
+              { val: "Real", lbl: "Tax deduction" },
+              { val: "Zero", lbl: "Customer friction" },
             ] as const).map((s, i) => (
               <div key={s.lbl} className="py-8 md:py-10" style={{ paddingLeft: i > 0 ? "clamp(16px, 3vw, 40px)" : undefined, borderLeft: i > 0 ? "1px solid #E8E4DF" : undefined }}>
                 <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1, letterSpacing: "-0.02em", color: "#8B7355" }}>{s.val}</p>
@@ -85,9 +85,9 @@ export default function LandingPage() {
               </h2>
               <div className="mt-10 space-y-8">
                 {([
-                  { n: "01", t: "Customer pays as usual", b: "The 11\u00A2 is baked into the price. No surcharge, no prompt, no opt-in. The customer just sees $18.73." },
-                  { n: "02", t: "DimeTech splits the funds", b: "10\u00A2 is routed to a registered food bank. 1\u00A2 covers the verification and audit trail. Every cent logged." },
-                  { n: "03", t: "Your company gets the receipt", b: "The food bank issues a consolidated charitable tax receipt to your company\u2014not to individual customers. One deduction, fully documented." },
+                  { n: "01", t: "We integrate with your platform", b: "One simple integration. No changes to your checkout, no prompts for customers, no disruption to your operations." },
+                  { n: "02", t: "Every transaction creates impact", b: "Each sale automatically generates a verified charitable contribution to a registered food bank. Fully tracked, fully auditable." },
+                  { n: "03", t: "Your company gets the tax receipt", b: "A consolidated charitable tax receipt is issued directly to your company. One deduction, fully documented, every quarter." },
                 ] as const).map((step, i) => (
                   <div key={step.n} className="flex gap-5">
                     <span className="mt-0.5 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>{step.n}</span>
@@ -100,41 +100,14 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Flow diagram */}
+            {/* What you get */}
             <div className="space-y-2.5 rounded-xl p-6 md:p-8" style={{ background: "linear-gradient(160deg, #F3F0EC 0%, #EBE7E2 100%)" }}>
               <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
-                <span className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95", fontWeight: 500 }}>Customer sees</span>
-                <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "26px", color: "#2C2825", letterSpacing: "-0.02em" }}>$18.73</p>
-                <span className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>No surcharge visible</span>
-              </div>
-
-              <div className="flex justify-center py-0.5">
-                <svg width="1" height="16"><line x1="0.5" y1="0" x2="0.5" y2="16" stroke="#D5CFC8" strokeWidth="1" strokeDasharray="3 3" /></svg>
-              </div>
-
-              <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xs uppercase tracking-[0.1em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#2C2825", fontWeight: 600 }}>DimeTech</span>
-                  <span className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#8C8279" }}>separates</span>
+                <div className="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#8B7355" /><path d="M5 8l2 2 4-4" stroke="#FAF9F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B5D4D", fontWeight: 600 }}>Tax deduction</span>
                 </div>
-                <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "26px", color: "#8B7355", letterSpacing: "-0.02em" }}>11&cent;</p>
-              </div>
-
-              <div className="flex justify-center py-0.5">
-                <svg width="1" height="12"><line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#D5CFC8" strokeWidth="1" strokeDasharray="3 3" /></svg>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5">
-                <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
-                  <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "26px", color: "#8B7355", letterSpacing: "-0.02em" }}>10&cent;</p>
-                  <p className="mt-0.5 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#2C2825", fontWeight: 600 }}>Food Bank</p>
-                  <p className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>Registered charity</p>
-                </div>
-                <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
-                  <p style={{ fontFamily: "'Instrument Serif', Georgia, serif", fontSize: "26px", color: "#A69E95", letterSpacing: "-0.02em" }}>1&cent;</p>
-                  <p className="mt-0.5 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#2C2825", fontWeight: 600 }}>DimeTech</p>
-                  <p className="text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>Verification &amp; audit</p>
-                </div>
+                <p className="mt-1 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>Consolidated charitable receipt issued quarterly</p>
               </div>
 
               <div className="flex justify-center py-0.5">
@@ -144,9 +117,33 @@ export default function LandingPage() {
               <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
                 <div className="flex items-center gap-2">
                   <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#8B7355" /><path d="M5 8l2 2 4-4" stroke="#FAF9F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B5D4D", fontWeight: 600 }}>Tax receipt issued to your company</span>
+                  <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B5D4D", fontWeight: 600 }}>Verified impact</span>
                 </div>
-                <p className="mt-1 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>Consolidated charitable deduction, fully documented</p>
+                <p className="mt-1 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>Every donation tracked, audited, and attributable to your brand</p>
+              </div>
+
+              <div className="flex justify-center py-0.5">
+                <svg width="1" height="12"><line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#D5CFC8" strokeWidth="1" strokeDasharray="3 3" /></svg>
+              </div>
+
+              <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
+                <div className="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#8B7355" /><path d="M5 8l2 2 4-4" stroke="#FAF9F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B5D4D", fontWeight: 600 }}>Brand story</span>
+                </div>
+                <p className="mt-1 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>&ldquo;Every order fights hunger&rdquo; &mdash; a cause marketing headline that writes itself</p>
+              </div>
+
+              <div className="flex justify-center py-0.5">
+                <svg width="1" height="12"><line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#D5CFC8" strokeWidth="1" strokeDasharray="3 3" /></svg>
+              </div>
+
+              <div className="rounded-lg px-5 py-3.5" style={{ backgroundColor: "rgba(250,249,247,0.8)" }}>
+                <div className="flex items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#8B7355" /><path d="M5 8l2 2 4-4" stroke="#FAF9F7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <span className="text-sm" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#6B5D4D", fontWeight: 600 }}>Zero customer friction</span>
+                </div>
+                <p className="mt-1 text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#A69E95" }}>No prompts, no opt-ins, no checkout changes. Completely invisible.</p>
               </div>
             </div>
           </div>
@@ -163,9 +160,9 @@ export default function LandingPage() {
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {([
-              { label: "Tax deduction", head: "Your company gets a consolidated charitable tax receipt.", body: "The food bank issues receipts directly to your company. At scale, this is a significant deduction\u2014fully documented by DimeTech\u2019s audit trail." },
+              { label: "Tax deduction", head: "Your company gets a consolidated charitable tax receipt.", body: "Receipts are issued directly to your company by a registered food bank. At scale, this is a significant deduction\u2014fully documented." },
               { label: "Brand lift", head: "\u201CEvery order fights hunger.\u201D That\u2019s your headline.", body: "Cause marketing drives 1\u20132% revenue uplift. DimeTech gives you the story and the proof to back it up." },
-              { label: "Zero friction", head: "No prompts. No opt-ins. No checkout changes.", body: "The 11\u00A2 is baked into the price. Customers see nothing different. Your team integrates once via API." },
+              { label: "Zero friction", head: "No prompts. No opt-ins. No checkout changes.", body: "Completely invisible to customers. Your team integrates once and every transaction automatically generates impact." },
             ] as const).map((item, i) => (
               <div
                 key={item.label}
