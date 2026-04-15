@@ -99,6 +99,74 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ─── DUAL VALUE PROP ─────────────────────── */}
+      <section className="px-6 lg:px-12" style={{ backgroundColor: "#fff", paddingTop: "clamp(48px, 8vw, 72px)", paddingBottom: "clamp(48px, 8vw, 72px)" }}>
+        <div className="mx-auto max-w-[1120px]">
+          <FadeInSection>
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>A continuous impact engine</p>
+            <p className="mt-2 text-center text-sm" style={{ color: "#888" }}>DimeTech creates value on both sides of the transaction.</p>
+          </FadeInSection>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            <FadeInSection delay={0.1}>
+              <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: "#FAFAFA" }}>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: "#111" }}>For your business</p>
+                <ul className="mt-5 space-y-4">
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>1</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Tax deduction every quarter</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>One consolidated charitable receipt. Ready for your accountant.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>2</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Customers spend more with you</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Cause-linked brands see 1-2% revenue uplift. Measurable.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>3</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Zero operational overhead</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>No checkout changes. No customer prompts. No new workflows.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </FadeInSection>
+            <FadeInSection delay={0.2}>
+              <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: "#FAFAFA" }}>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: "#111" }}>For your community</p>
+                <ul className="mt-5 space-y-4">
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>1</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Steady funding for local food banks</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Not a one-time donation. Every transaction generates ongoing support.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>2</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Every donation is verified</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Tracked per transaction. Fully auditable. No guesswork.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>3</span>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Impact that scales with commerce</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>More sales means more meals. The system grows as your business grows.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
       {/* ─── STATS ────────────────────────────────── */}
       <section style={{ backgroundColor: "#FAFAFA", borderBottom: "1px solid #EBEBEB" }}>
         <div className="mx-auto max-w-[1120px] px-6 py-12 lg:px-12">
