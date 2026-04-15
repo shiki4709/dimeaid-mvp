@@ -62,13 +62,13 @@ export default function LandingPage() {
           <div className="max-w-[680px]">
             <FadeInSection>
               <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>
-                Transaction-layer infrastructure
+                Automatic charitable giving for businesses
               </p>
             </FadeInSection>
 
             <div className="mt-5">
               <TextReveal
-                text="Embed tax-deductible giving into every transaction. No checkout changes."
+                text="Every sale feeds someone. Automatically. No checkout changes."
                 tag="h1"
                 style={{ fontSize: "clamp(30px, 5vw, 52px)", lineHeight: 1.1, letterSpacing: "-0.03em", fontWeight: 700, color: "#fff" }}
               />
@@ -76,7 +76,7 @@ export default function LandingPage() {
 
             <FadeInSection delay={0.15}>
               <p className="mt-6 max-w-[500px] text-base leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                DimeTech sits downstream of payment, upstream of reconciliation. Each transaction generates a verified micro-donation to a registered food bank. Your company receives a consolidated tax receipt. Customers experience zero change.
+                DimeTech connects to your checkout and routes a small donation from every transaction to a registered food bank. Your company gets a tax deduction. Your customers see no difference. It just runs.
               </p>
             </FadeInSection>
 
@@ -119,7 +119,7 @@ export default function LandingPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>Integration</p>
               </FadeInSection>
               <TextReveal
-                text="Connects to your POS. Donations happen automatically."
+                text="Set it up once. Every sale donates automatically."
                 tag="h2"
                 className="mt-3"
                 style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#111" }}
@@ -128,9 +128,9 @@ export default function LandingPage() {
 
               <div className="mt-10 space-y-8">
                 {([
-                  { n: "01", t: "Connect your payment system", b: "REST API or webhook. Compatible with Stripe, Square, Toast, Clover, and custom POS systems. No frontend deployment required." },
-                  { n: "02", t: "Donations are generated per transaction", b: "Each completed sale triggers a verified micro-donation to a CRA-registered food bank. Donation amount, recipient, and receipt ID are logged against the transaction." },
-                  { n: "03", t: "Consolidated tax receipts are issued quarterly", b: "Your company receives a single charitable tax receipt covering all donations for the period. Deductible under ITA s.110.1 (Canada) or IRC \u00A7170 (US). Audit-ready documentation included." },
+                  { n: "01", t: "Connect your checkout system", b: "Works with Toast, Square, Clover, Stripe, and most POS systems. One-time setup, no hardware, no changes to your checkout." },
+                  { n: "02", t: "Every sale generates a donation", b: "Each transaction automatically sends a small donation to a registered food bank. Fully tracked and verifiable." },
+                  { n: "03", t: "You get a tax receipt every quarter", b: "One consolidated charitable receipt covering all donations. Tax-deductible in Canada and the US. Ready for your accountant." },
                 ] as const).map((step, i) => (
                   <SlideInFromLeft key={step.n} delay={i * 0.15}>
                     <div className="flex gap-4">
@@ -168,20 +168,20 @@ export default function LandingPage() {
                     </div>
                     <div className="mt-2.5 space-y-1">
                       <div className="flex items-center justify-between text-xs" style={{ color: "#999" }}>
-                        <span>amount</span>
+                        <span>order</span>
                         <span className="font-mono font-medium" style={{ color: "#111" }}>$18.73</span>
                       </div>
                       <div className="flex items-center justify-between text-xs" style={{ color: "#999" }}>
                         <span>donation</span>
-                        <span className="font-mono font-medium" style={{ color: "#0D9373" }}>$0.11</span>
+                        <span className="font-mono font-medium" style={{ color: "#0D9373" }}>included</span>
                       </div>
                       <div className="flex items-center justify-between text-xs" style={{ color: "#999" }}>
                         <span>recipient</span>
-                        <span className="font-mono font-medium" style={{ color: "#111" }}>Greater Toronto Food Bank</span>
+                        <span className="font-mono font-medium" style={{ color: "#111" }}>Local Food Bank</span>
                       </div>
                       <div className="flex items-center justify-between text-xs" style={{ color: "#999" }}>
-                        <span>receipt</span>
-                        <span className="font-mono font-medium" style={{ color: "#111" }}>rct_9f3a2b</span>
+                        <span>status</span>
+                        <span className="font-mono font-medium" style={{ color: "#0D9373" }}>verified</span>
                       </div>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default function LandingPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>Use cases</p>
           </FadeInSection>
           <TextReveal
-            text="Any business that processes transactions can plug in."
+            text="Works for restaurants, platforms, and retail chains."
             tag="h2"
             className="mt-3 max-w-[560px]"
             style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#111" }}
@@ -208,9 +208,9 @@ export default function LandingPage() {
 
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {([
-              { label: "Restaurants & QSR", head: "POS integration with zero operational overhead.", body: "Compatible with Toast, Square, and Clover. Every order generates a tracked donation. Customers see no change to pricing or checkout flow.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80", alt: "Restaurant dining" },
-              { label: "Platforms & marketplaces", head: "Embed giving across your entire transaction volume.", body: "Single API integration covers all merchants. Per-merchant attribution, consolidated reporting, and a full audit trail for compliance teams.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&q=80", alt: "Analytics dashboard" },
-              { label: "Grocery & retail", head: "Works with NCR, Toshiba, Shopify POS, and custom systems.", body: "Middleware integration listens to completed transactions. No changes to card authorization, pricing, tax engine, or inventory. Runs after the sale — checkout speed is unaffected.", img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&q=80", alt: "Grocery store checkout" },
+              { label: "Restaurants & QSR", head: "Every order feeds someone. Your checkout stays the same.", body: "Works with Toast, Square, and Clover. Set it up once, and every order automatically generates a donation. Your customers see no difference.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80", alt: "Restaurant dining" },
+              { label: "Platforms & marketplaces", head: "One integration covers every merchant on your platform.", body: "A single connection embeds giving across all your merchants. Each donation is tracked to the originating business.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&q=80", alt: "Analytics dashboard" },
+              { label: "Grocery & retail", head: "100 stores live in weeks. No checkout disruption.", body: "Connects to NCR, Toshiba, Shopify POS, and custom systems. Runs after the sale is complete, so your lanes are unaffected.", img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&q=80", alt: "Grocery store checkout" },
             ] as const).map((item, i) => (
               <ScaleIn key={item.label} delay={i * 0.1}>
                 <HoverCard className="overflow-hidden rounded-xl" style={{ backgroundColor: "#fff" }}>
@@ -244,7 +244,7 @@ export default function LandingPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>Business case</p>
           </FadeInSection>
           <TextReveal
-            text="What your finance team wants to hear."
+            text="Why your finance team will say yes."
             tag="h2"
             className="mt-3"
             style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#111" }}
@@ -253,9 +253,9 @@ export default function LandingPage() {
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl md:grid-cols-3" style={{ backgroundColor: "#EBEBEB" }}>
             {([
-              { stat: "$0", desc: "Net cost to your business", detail: "Donations are micro-amounts routed at the transaction layer. There is no markup, no subscription, and no budget allocation required. The cost structure is embedded in the flow." },
-              { stat: "1\u20132%", desc: "Documented revenue uplift", detail: "Published research shows cause-linked commerce increases average order value. DimeTech gives you per-transaction attribution to quantify the lift." },
-              { stat: "100%", desc: "Tax-deductible", detail: "Receipts are issued by CRA-registered charities (or 501(c)(3) equivalents in the US). Deductible under ITA s.110.1 up to 75% of net income. Quarterly consolidation, audit-ready." },
+              { stat: "$0", desc: "Cost to your business", detail: "No fees, no subscription, no budget line item. The donation is built into the transaction. Your bottom line stays the same." },
+              { stat: "1\u20132%", desc: "Revenue uplift", detail: "Customers spend more with brands that stand for something. DimeTech gives you the proof to back it up." },
+              { stat: "100%", desc: "Tax-deductible", detail: "You receive a quarterly charitable tax receipt. Deductible in both Canada and the US. Ready for your accountant." },
             ] as const).map((item, i) => (
               <FadeInSection key={item.stat} delay={i * 0.1}>
                 <div className="p-8" style={{ backgroundColor: "#fff" }}>
@@ -290,7 +290,7 @@ export default function LandingPage() {
             />
             <FadeInSection delay={0.3}>
               <p className="mt-5 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                Whether you process 100 transactions a day or 100,000 &mdash; DimeTech works the same way. Connect once, and every transaction generates a tracked, tax-deductible donation with no changes to your checkout.
+                Whether you run a single restaurant or a national chain &mdash; DimeTech works the same way. Connect once, and every sale generates a verified donation with no changes to your checkout.
               </p>
               <div className="mt-8">
                 <MagneticButton
