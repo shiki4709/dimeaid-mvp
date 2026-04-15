@@ -109,27 +109,27 @@ export default function LandingPage() {
           <div className="mt-10 grid gap-8 md:grid-cols-2">
             <FadeInSection delay={0.1}>
               <div className="rounded-xl p-6 md:p-8" style={{ backgroundColor: "#FAFAFA" }}>
-                <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: "#111" }}>For your business</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: "#111" }}>Financial return</p>
                 <ul className="mt-5 space-y-4">
                   <li className="flex gap-3">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>1</span>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Tax deduction every quarter</p>
-                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>One consolidated charitable receipt. Ready for your accountant.</p>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Reduce your tax bill every quarter</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Charitable donations are deducted from taxable income. One consolidated receipt, ready for your accountant.</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>2</span>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Customers spend more with you</p>
-                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Cause-linked brands see 1-2% revenue uplift. Measurable.</p>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Higher spend, more repeat customers</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Cause-linked brands see 1-2% higher average order value and stronger customer loyalty.</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>3</span>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Zero operational overhead</p>
-                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>No checkout changes. No customer prompts. No new workflows.</p>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>ESG compliance with zero effort</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Measurable social impact data for your ESG reporting. No new programs, no new hires, no committees.</p>
                     </div>
                   </li>
                 </ul>
@@ -330,9 +330,9 @@ export default function LandingPage() {
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl md:grid-cols-3" style={{ backgroundColor: "#EBEBEB" }}>
             {([
-              { stat: "$0", desc: "Cost to your business", detail: "No fees, no subscription, no budget line item. The donation is built into the transaction. Your bottom line stays the same." },
-              { stat: "1\u20132%", desc: "Revenue uplift", detail: "Customers spend more with brands that stand for something. DimeTech gives you the proof to back it up." },
-              { stat: "100%", desc: "Tax-deductible", detail: "You receive a quarterly charitable tax receipt. Deductible in both Canada and the US. Ready for your accountant." },
+              { stat: "$0", desc: "Net cost to implement", detail: "No fees, no subscription, no budget line item. The donation is built into the transaction flow. Nothing comes off your margin." },
+              { stat: "1\u20132%", desc: "Higher average order value", detail: "Published research shows cause-linked brands see increased spend per customer and stronger repeat purchase rates." },
+              { stat: "100%", desc: "Tax-deductible donations", detail: "Every donation reduces your taxable income. One quarterly receipt covers everything. Your accountant will like this." },
             ] as const).map((item, i) => (
               <FadeInSection key={item.stat} delay={i * 0.1}>
                 <div className="p-8" style={{ backgroundColor: "#fff" }}>
