@@ -86,14 +86,36 @@ function HoverCard({
   className?: string;
   style?: React.CSSProperties;
 }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    cardRef.current.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
+  }
+
+  function handleMouseLeave() {
+    if (!cardRef.current) return;
+    cardRef.current.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg) translateY(0px)";
+  }
+
   return (
-    <motion.div
+    <div
+      ref={cardRef}
       className={className}
-      style={style}
-      whileHover={{ y: -4, transition: { duration: 0.25 } }}
+      style={{
+        ...style,
+        transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        transformStyle: "preserve-3d",
+        willChange: "transform",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
