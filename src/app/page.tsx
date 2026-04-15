@@ -191,56 +191,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ─── WHY NOW ─────────────────────────────── */}
-      <section className="px-6 lg:px-12" style={{ backgroundColor: "#111", color: "#fff", paddingTop: "clamp(64px, 10vw, 110px)", paddingBottom: "clamp(64px, 10vw, 110px)" }}>
-        <div className="mx-auto max-w-[1120px]">
-          <div className="grid gap-14 md:grid-cols-[1fr_1fr] md:items-center md:gap-20">
-            <div>
-              <FadeInSection>
-                <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>Why now</p>
-              </FadeInSection>
-              <TextReveal
-                text="Checkout charity is dying. Agentic commerce will finish it."
-                tag="h2"
-                className="mt-3"
-                style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#fff" }}
-                delay={0.1}
-              />
-              <FadeInSection delay={0.2}>
-                <p className="mt-5 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Fewer than 19% of Canadian tax filers claimed a charitable donation last year &mdash; a 30-year low. In the US, donating households dropped below 50%. Checkout roundups convert at 2&ndash;4% and falling. People aren&apos;t less generous. They&apos;re exhausted from being asked.
-                </p>
-                <p className="mt-4 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  Now add agentic commerce. When an AI agent orders your Uber, buys your groceries, or pays your bills, it optimizes for price and speed. &ldquo;Add $1 for hunger relief?&rdquo; The agent declines. Every time. Not because it&apos;s cruel &mdash; because it was told to get the best deal.
-                </p>
-                <p className="mt-4 text-sm font-medium leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
-                  The only giving model that survives is one where the donation is invisible to the buyer and invisible to AI. That&apos;s DimeAid.
-                </p>
-              </FadeInSection>
-            </div>
-
-            <FadeInSection delay={0.3}>
-              <div className="space-y-4">
-                {([
-                  { stat: "19%", desc: "of Canadian tax filers claimed a donation in 2024", src: "CanadaHelps 2024" },
-                  { stat: "2M", desc: "monthly food bank visits in Canada, up 90% from pre-COVID", src: "Food Banks Canada 2024" },
-                  { stat: "61%", desc: "of North Americans say checkout donation prompts feel like pressure", src: "" },
-                  { stat: "2\u20134%", desc: "conversion rate on checkout roundup prompts \u2014 and declining", src: "" },
-                ] as const).map((item) => (
-                  <div key={item.stat} className="flex items-baseline gap-4 rounded-lg px-5 py-4" style={{ backgroundColor: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                    <span className="shrink-0 text-2xl font-bold tracking-tight" style={{ color: "#0D9373" }}>{item.stat}</span>
-                    <div>
-                      <span className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.desc}</span>
-                      {item.src && <span className="ml-1 text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>({item.src})</span>}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeInSection>
-          </div>
-        </div>
-      </section>
-
       {/* ─── USE CASES ────────────────────────────── */}
       <section id="use-cases" className="px-6 lg:px-12" style={{ backgroundColor: "#FAFAFA", paddingTop: "clamp(64px, 10vw, 110px)", paddingBottom: "clamp(64px, 10vw, 110px)" }}>
         <div className="mx-auto max-w-[1120px]">
