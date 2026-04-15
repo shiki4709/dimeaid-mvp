@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DimeAid — General Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090B; --white: #FAFAFA;
+            --z50: #FAFAFA; --z100: #F4F4F5; --z200: #E4E4E7; --z300: #D4D4D8;
+            --z400: #A1A1AA; --z500: #71717A; --z700: #3F3F46; --z900: #18181B;
+            --green: #0D9373; --green-light: #ECFDF5;
+            --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--white); font-family: var(--font); overflow: hidden; -webkit-font-smoothing: antialiased; }
+        .deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+        @media (min-width: 769px) { .deck { max-width: calc(100vh * 16 / 9); max-height: calc(100vw * 9 / 16); margin: auto; position: absolute; inset: 0; } }
+        .slide { position: absolute; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 60px 80px 40px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; overflow: hidden; }
+        .slide.active { opacity: 1; visibility: visible; }
+        .slide.center { align-items: center; text-align: center; padding: 60px 100px 40px; }
+        h1 { font-size: clamp(48px, 6vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; }
+        h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+        h3 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+        .sub { font-size: clamp(15px, 1.6vw, 19px); line-height: 1.65; max-width: 560px; margin-top: 20px; color: var(--z400); }
+        .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px; color: var(--green); }
+        .src { font-size: 10px; color: var(--z500); margin-top: 20px; max-width: 560px; line-height: 1.5; }
+        .foot { position: absolute; bottom: 16px; left: 80px; font-size: 9px; color: var(--z700); }
+        .light { background: var(--z50); color: var(--z900); }
+        .light .sub { color: var(--z500); }
+        .light .foot { color: var(--z300); }
+        .light .src { color: var(--z400); }
+        .off-white { background: var(--z100); color: var(--z900); }
+        .off-white .sub { color: var(--z500); }
+        .off-white .foot { color: var(--z300); }
+        .brand { background: var(--green); color: var(--white); }
+        .brand .eyebrow { color: rgba(255,255,255,0.6); }
+        .brand .sub { color: rgba(255,255,255,0.75); }
+        .brand .foot { color: rgba(255,255,255,0.2); }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; max-width: 700px; }
+        .stat-card { padding: 24px; border-radius: 10px; }
+        .stat-n { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; }
+        .stat-l { font-size: 12px; color: var(--z500); margin-top: 4px; line-height: 1.4; }
+        .light .stat-card { background: var(--z100); }
+        .dark-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; }
+        .checks { list-style: none; margin-top: 24px; font-size: 15px; line-height: 2; }
+        .checks li { display: flex; align-items: center; gap: 10px; }
+        .checks .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+        .flow { display: flex; align-items: center; gap: 10px; margin-top: 36px; }
+        .flow-box { padding: 14px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; text-align: center; }
+        .flow-arrow { color: var(--z300); font-size: 18px; }
+        .team-row { display: flex; gap: 20px; margin-top: 32px; }
+        .team-card { flex: 1; padding: 24px; border-radius: 12px; text-align: center; }
+        .light .team-card { background: var(--z100); }
+        .avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 18px; font-weight: 700; color: white; }
+        nav.nav { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; z-index: 100; background: rgba(9,9,11,0.85); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); }
+        nav button { background: none; border: none; color: var(--z400); cursor: pointer; padding: 4px; display: flex; align-items: center; }
+        nav button:hover { color: var(--white); }
+        .ct { font-size: 11px; color: var(--z500); font-variant-numeric: tabular-nums; }
+        #bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--green); transition: width 0.3s ease; z-index: 100; }
+    </style>
+</head>
+<body>
+    <div id="bar" style="width: 0%;"></div>
+    <div class="deck">
+
+    <!-- 1. TITLE -->
+    <div class="slide center active">
+        <div class="eyebrow">Confidential</div>
+        <h1>Dime<span style="color: var(--green);">Aid</span></h1>
+        <p class="sub" style="max-width: 480px;">Embedded charitable giving at the transaction layer. Tax-deductible. Fully verified. Zero checkout changes.</p>
+        <div style="margin-top: 40px; font-size: 13px; color: var(--z500);">Lazarus Invents Inc. &middot; Toronto &amp; San Francisco</div>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 2. THE PROBLEM -->
+    <div class="slide">
+        <div class="eyebrow">The problem</div>
+        <h2>The way the world gives<br>to charity is broken.</h2>
+        <p class="sub">Round up your change. Add a dollar. $14/month for dogs. Every checkout, every scroll, every commercial. People are exhausted from being asked.</p>
+        <div class="stat-grid" style="margin-top: 32px;">
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--green);">19%</div>
+                <div class="stat-l" style="color: var(--z400);">of Canadian tax filers claimed a donation &mdash; a 30-year low</div>
+            </div>
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--white);">&lt;50%</div>
+                <div class="stat-l" style="color: var(--z400);">of US households now donate, down from 66%</div>
+            </div>
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--white);">61%</div>
+                <div class="stat-l" style="color: var(--z400);">say checkout donation prompts feel like pressure</div>
+            </div>
+        </div>
+        <p class="src">CanadaHelps 2024, Giving USA / Lilly Family School 2024, Binghamton University / JPNA 2024.</p>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 3. WHY NOW — AGENTIC COMMERCE -->
+    <div class="slide">
+        <div class="eyebrow">Why now</div>
+        <h2>Agentic commerce<br>will finish it.</h2>
+        <p class="sub">AI agents are starting to shop, book, and pay on behalf of consumers. When an AI agent orders your Uber or buys your groceries, it optimizes for price and speed.</p>
+        <p class="sub" style="margin-top: 12px; color: var(--z300);">&ldquo;Add $1 for hunger relief?&rdquo; &mdash; <strong style="color: var(--white);">The agent declines. Every time.</strong></p>
+        <p class="sub" style="margin-top: 12px;">Not because it&rsquo;s cruel. Because it was told to get the best deal. Checkout charity doesn&rsquo;t survive agentic commerce.</p>
+        <div style="display: flex; gap: 14px; margin-top: 28px; max-width: 560px;">
+            <div class="dark-stat" style="flex: 1; padding: 20px;">
+                <div class="stat-n" style="font-size: 28px; color: var(--green);">$5T</div>
+                <div class="stat-l" style="color: var(--z400);">Agentic commerce by 2030</div>
+            </div>
+            <div class="dark-stat" style="flex: 1; padding: 20px;">
+                <div class="stat-n" style="font-size: 28px; color: var(--white);">2&ndash;4%</div>
+                <div class="stat-l" style="color: var(--z400);">Checkout roundup conversion &mdash; and declining</div>
+            </div>
+        </div>
+        <p class="src">McKinsey ($3-5T by 2030). Adobe (4,700% YoY AI retail traffic, Jul 2025). POS campaigns raised $749M in 2022 (Engage for Good) &mdash; down from prior years.</p>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 4. THE THESIS -->
+    <div class="slide center brand">
+        <div class="eyebrow">The thesis</div>
+        <h2 style="max-width: 700px;">The only giving model that survives is one where the donation is invisible to the buyer and invisible to AI.</h2>
+        <p class="sub" style="max-width: 480px;">That&rsquo;s DimeAid. An 11&cent; verified donation embedded into every transaction. Partner-funded. Tax-deductible. 100% participation by default.</p>
+        <div class="foot" style="color: rgba(255,255,255,0.2); left: 50%; transform: translateX(-50%);">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 5. HOW IT WORKS -->
+    <div class="slide light">
+        <div class="eyebrow">How it works</div>
+        <h2>One integration.<br>Everything else is automatic.</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 32px; max-width: 600px;">
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--green); margin-top: 2px;">01</span>
+                <div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Connect your payment system</div>
+                    <div style="font-size: 13px; color: var(--z500); margin-top: 4px; line-height: 1.5;">API or webhook. Works with Stripe, Square, Toast, Clover, or any POS. No frontend changes.</div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--green); margin-top: 2px;">02</span>
+                <div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Every transaction generates a donation</div>
+                    <div style="font-size: 13px; color: var(--z500); margin-top: 4px; line-height: 1.5;">Each completed sale triggers a verified $0.10 donation to a registered food bank. Amount, recipient, and receipt ID are logged per transaction.</div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--green); margin-top: 2px;">03</span>
+                <div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Consolidated tax receipts are issued quarterly</div>
+                    <div style="font-size: 13px; color: var(--z500); margin-top: 4px; line-height: 1.5;">One receipt per quarter from a CRA-registered charity. Deductible under ITA s.110.1. Audit-ready documentation included.</div>
+                </div>
+            </div>
+        </div>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 6. THE MONEY FLOW -->
+    <div class="slide light">
+        <div class="eyebrow">The money flow</div>
+        <h2>$18.84 includes 11&cent; for good.</h2>
+        <div class="flow">
+            <div class="flow-box" style="background: var(--z100); color: var(--z900);">$18.84<br><span style="font-size: 11px; font-weight: 400; color: var(--z500);">Listed price</span></div>
+            <div class="flow-arrow">&rarr;</div>
+            <div class="flow-box" style="background: var(--green-light); color: var(--green); border: 1px solid #BBF7D0;">11&cent;<br><span style="font-size: 11px; font-weight: 400;">Embedded</span></div>
+            <div class="flow-arrow">&rarr;</div>
+            <div class="flow-box" style="background: var(--green); color: white;">10&cent;<br><span style="font-size: 11px; font-weight: 400;">Food bank</span></div>
+            <div class="flow-box" style="background: var(--z100); color: var(--z900);">1&cent;<br><span style="font-size: 11px; font-weight: 400;">Operations</span></div>
+        </div>
+        <p class="sub" style="margin-top: 24px;">The customer pays $18.84. 10&cent; goes to a certified charity &mdash; that&rsquo;s the partner&rsquo;s tax deduction. 1&cent; funds DimeAid&rsquo;s verification and audit infrastructure.</p>
+        <p class="src">Funds disbursed to registered charities on a monthly basis. Tax receipts generated quarterly. Subject to review under Canadian Income Tax Act.</p>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 7. THE BUSINESS CASE -->
+    <div class="slide off-white">
+        <div class="eyebrow">Business case</div>
+        <h2>What your finance team<br>wants to hear.</h2>
+        <div class="stat-grid" style="max-width: 700px;">
+            <div class="stat-card" style="background: white;">
+                <div class="stat-n" style="color: var(--green);">$0</div>
+                <div class="stat-l">Net cost to your business. No markup, no subscription, no budget allocation.</div>
+            </div>
+            <div class="stat-card" style="background: white;">
+                <div class="stat-n" style="color: var(--z900);">1&ndash;2%</div>
+                <div class="stat-l">Revenue uplift from cause-linked commerce. Measurable per-transaction.</div>
+            </div>
+            <div class="stat-card" style="background: white;">
+                <div class="stat-n" style="color: var(--z900);">100%</div>
+                <div class="stat-l">Tax-deductible. CRA-registered charities. Audit-ready quarterly receipts.</div>
+            </div>
+        </div>
+        <p class="src">Revenue uplift: published research on cause marketing (Cone/Porter Novelli, Nielsen). Tax treatment under ITA s.110.1 (Canada) and IRC &sect;170 (US). All estimates pending review by tax counsel.</p>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 8. THE MATH -->
+    <div class="slide">
+        <div class="eyebrow">The math</div>
+        <h2>One partner. $1B in<br>annual hunger funding.</h2>
+        <p class="sub">Uber processes ~28 million trips per day globally. At 11&cent; per trip, that&rsquo;s over $1 billion annually directed to fight hunger &mdash; from a single partner.</p>
+        <div class="stat-grid" style="margin-top: 28px;">
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--green);">28M</div>
+                <div class="stat-l" style="color: var(--z400);">Daily Uber trips (global)</div>
+            </div>
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--white);">$1B+</div>
+                <div class="stat-l" style="color: var(--z400);">Annual hunger funding from one partner</div>
+            </div>
+            <div class="dark-stat" style="padding: 24px;">
+                <div class="stat-n" style="color: var(--white);">0.6%</div>
+                <div class="stat-l" style="color: var(--z400);">Cost per transaction ($0.11 on avg $18.84)</div>
+            </div>
+        </div>
+        <p class="sub" style="margin-top: 20px;">The cost is negligible per transaction. Fully tax-deductible. And it gives any partner the most powerful cause marketing story in their category.</p>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 9. WHO IT'S FOR -->
+    <div class="slide light">
+        <div class="eyebrow">Use cases</div>
+        <h2>Anyone who processes<br>transactions can plug in.</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; max-width: 700px;">
+            <div style="background: var(--z100); border-radius: 12px; padding: 24px;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Restaurants &amp; QSR</div>
+                <div style="font-size: 12px; color: var(--z500); margin-top: 8px; line-height: 1.5;">Toast, Square, Clover. Every order generates a tracked donation. Zero POS changes.</div>
+            </div>
+            <div style="background: var(--z100); border-radius: 12px; padding: 24px;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Platforms &amp; marketplaces</div>
+                <div style="font-size: 12px; color: var(--z500); margin-top: 8px; line-height: 1.5;">One API covers all merchants. Per-merchant attribution and consolidated reporting.</div>
+            </div>
+            <div style="background: var(--z100); border-radius: 12px; padding: 24px;">
+                <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Food banks &amp; charities</div>
+                <div style="font-size: 12px; color: var(--z500); margin-top: 8px; line-height: 1.5;">Predictable, transaction-linked funding. Full transparency. No fundraising overhead.</div>
+            </div>
+        </div>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 10. TEAM -->
+    <div class="slide light">
+        <div class="eyebrow">The team</div>
+        <h2>Built by operators.</h2>
+        <div class="team-row" style="max-width: 640px;">
+            <div class="team-card">
+                <div class="avatar" style="background: var(--green);">LB</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Larry Bleau</div>
+                <div style="font-size: 11px; color: var(--green); font-weight: 600; margin-top: 2px;">Founder &amp; CEO</div>
+                <div style="font-size: 12px; color: var(--z500); margin-top: 8px; line-height: 1.5;">Decades in business development. Led $350M+ annual revenue operations across 7 global offices.</div>
+            </div>
+            <div class="team-card">
+                <div class="avatar" style="background: #1E40AF;">HT</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--z900);">Haruka Takamori</div>
+                <div style="font-size: 11px; color: var(--green); font-weight: 600; margin-top: 2px;">COO &amp; Head of Product</div>
+                <div style="font-size: 12px; color: var(--z500); margin-top: 8px; line-height: 1.5;">Built the DimeAid MVP, verification system, POS architecture, and all partner materials.</div>
+            </div>
+            <div class="team-card" style="border: 2px dashed var(--z200);">
+                <div class="avatar" style="background: var(--z200); color: var(--z400);">?</div>
+                <div style="font-size: 15px; font-weight: 600; color: var(--z400);">Hiring</div>
+                <div style="font-size: 11px; color: var(--green); font-weight: 600; margin-top: 2px;">CTO</div>
+                <div style="font-size: 12px; color: var(--z400); margin-top: 8px; line-height: 1.5;">Senior technical leader with fintech infrastructure and POS integration experience.</div>
+            </div>
+        </div>
+        <div class="foot">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    <!-- 11. CLOSE -->
+    <div class="slide center">
+        <div class="eyebrow">Next steps</div>
+        <h2>Checkout charity is dying.<br>We&rsquo;re building what replaces it.</h2>
+        <p class="sub" style="max-width: 440px;">Nobody has built embedded, partner-funded, AI-proof charitable giving at the transaction layer. We&rsquo;re building it.</p>
+        <div style="display: flex; gap: 12px; margin-top: 32px;">
+            <div class="dark-stat" style="padding: 20px 24px; text-align: center;">
+                <div style="font-size: 24px; font-weight: 700; color: var(--green);">1</div>
+                <div style="font-size: 11px; color: var(--z400); margin-top: 4px;">Technical review</div>
+            </div>
+            <div class="dark-stat" style="padding: 20px 24px; text-align: center;">
+                <div style="font-size: 24px; font-weight: 700; color: var(--white);">2</div>
+                <div style="font-size: 11px; color: var(--z400); margin-top: 4px;">Pilot integration</div>
+            </div>
+            <div class="dark-stat" style="padding: 20px 24px; text-align: center;">
+                <div style="font-size: 24px; font-weight: 700; color: var(--white);">3</div>
+                <div style="font-size: 11px; color: var(--z400); margin-top: 4px;">Launch</div>
+            </div>
+        </div>
+        <div style="margin-top: 40px;">
+            <p style="font-size: 15px; font-weight: 600; color: var(--white);">Larry Bleau</p>
+            <p style="font-size: 13px; color: var(--z400);">larry@lazarusbleau.com</p>
+            <p style="font-size: 12px; color: var(--z500); margin-top: 4px;">Lazarus Invents Inc. &middot; Toronto &amp; San Francisco</p>
+        </div>
+        <div class="foot" style="left: 50%; transform: translateX(-50%);">DimeAid &copy; Lazarus Invents Inc. Confidential.</div>
+    </div>
+
+    </div>
+
+    <nav class="nav">
+        <button onclick="go(-1)" aria-label="Previous"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <span class="ct"><span id="c">1</span> / <span id="t">11</span></span>
+        <button onclick="go(1)" aria-label="Next"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </nav>
+
+    <script>
+        let cur = 1;
+        const slides = document.querySelectorAll('.deck > .slide');
+        const tot = slides.length;
+        document.getElementById('t').textContent = tot;
+        function show(n) { cur = Math.max(1, Math.min(n, tot)); slides.forEach((s, i) => s.classList.toggle('active', i === cur - 1)); document.getElementById('c').textContent = cur; document.getElementById('bar').style.width = (cur / tot * 100) + '%'; }
+        function go(d) { show(cur + d); }
+        document.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
+        let tx = 0;
+        document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+        document.addEventListener('touchend', e => { const d = tx - e.changedTouches[0].clientX; if (Math.abs(d) > 50) go(d > 0 ? 1 : -1); });
+        show(1);
+    </script>
+</body>
+</html>
