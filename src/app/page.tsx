@@ -118,7 +118,7 @@ export default function LandingPage() {
                 <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>Integration</p>
               </FadeInSection>
               <TextReveal
-                text="One connection. Fully automated from there."
+                text="Connects to your POS. Donations happen automatically."
                 tag="h2"
                 className="mt-3"
                 style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#111" }}
@@ -209,7 +209,7 @@ export default function LandingPage() {
             {([
               { label: "Restaurants & QSR", head: "POS integration with zero operational overhead.", body: "Compatible with Toast, Square, and Clover. Every order generates a tracked donation. Customers see no change to pricing or checkout flow.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80", alt: "Restaurant dining" },
               { label: "Platforms & marketplaces", head: "Embed giving across your entire transaction volume.", body: "Single API integration covers all merchants. Per-merchant attribution, consolidated reporting, and a full audit trail for compliance teams.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&q=80", alt: "Analytics dashboard" },
-              { label: "Charities & food banks", head: "Predictable, transaction-linked funding.", body: "Receive steady, verified donations tied to real commerce. Full transparency on source, amount, and frequency. No fundraising campaigns required.", img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=340&fit=crop&q=80", alt: "Food bank volunteers" },
+              { label: "Grocery & retail", head: "Works with NCR, Toshiba, Shopify POS, and custom systems.", body: "Middleware integration listens to completed transactions. No changes to card authorization, pricing, tax engine, or inventory. Runs after the sale — checkout speed is unaffected.", img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&q=80", alt: "Grocery store checkout" },
             ] as const).map((item, i) => (
               <ScaleIn key={item.label} delay={i * 0.1}>
                 <HoverCard className="overflow-hidden rounded-xl" style={{ backgroundColor: "#fff" }}>
