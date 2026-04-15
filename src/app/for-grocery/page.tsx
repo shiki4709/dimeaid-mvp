@@ -6,7 +6,7 @@ import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
   title: "DimeTech for Grocery & Retail",
-  description: "Works with NCR, Toshiba, Shopify POS. Runs after the sale. Zero checkout disruption. 100-store rollout in weeks.",
+  description: "Designed for NCR, Toshiba, Shopify POS. Runs after the sale. Zero checkout disruption. Multi-location rollout.",
 };
 
 export default function ForGrocery() {
@@ -23,7 +23,7 @@ export default function ForGrocery() {
             <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#0D9373" }}>For grocery &amp; retail</p>
           </FadeInSection>
           <div className="mt-4 max-w-[580px]">
-            <TextReveal text="Enterprise POS integration. Zero checkout disruption. 100 stores in weeks." tag="h1" style={{ fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.12, letterSpacing: "-0.03em", fontWeight: 700, color: "#fff" }} />
+            <TextReveal text="Enterprise POS integration. Zero checkout disruption. Built for multi-location rollout." tag="h1" style={{ fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.12, letterSpacing: "-0.03em", fontWeight: 700, color: "#fff" }} />
           </div>
           <FadeInSection delay={0.15}>
             <p className="mt-5 max-w-[440px] text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -44,7 +44,7 @@ export default function ForGrocery() {
       <section className="px-6 lg:px-12" style={{ paddingTop: "clamp(48px, 8vw, 72px)", paddingBottom: "clamp(48px, 8vw, 72px)" }}>
         <div className="mx-auto grid max-w-[1120px] gap-10 md:grid-cols-3">
           {([
-            { n: "01", t: "Works with any POS", d: "NCR, Toshiba, Shopify POS, Lightspeed, custom systems. Cloud POS via webhooks, legacy via middleware agent." },
+            { n: "01", t: "Designed for any POS", d: "NCR, Toshiba, Shopify POS, Lightspeed, custom systems. Cloud POS via webhooks, legacy via middleware agent." },
             { n: "02", t: "Daily accrual by store", d: "3,800 transactions at Store #18 = $380 accrued. Daily charity liability entries ready for SAP, Oracle, or NetSuite." },
             { n: "03", t: "Consolidated quarterly receipts", d: "One tax receipt covering all stores, banners, and regions. ITA s.110.1 compliant. Audit-ready." },
           ] as const).map((item) => (

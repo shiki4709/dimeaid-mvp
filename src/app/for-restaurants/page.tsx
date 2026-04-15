@@ -6,7 +6,7 @@ import MagneticButton from "@/components/MagneticButton";
 
 export const metadata: Metadata = {
   title: "DimeTech for Restaurants",
-  description: "Turn every order into a verified, tax-deductible donation. Works with Toast, Square, and Clover. Zero checkout changes.",
+  description: "Turn every order into a tracked, tax-deductible donation. Designed for Toast, Square, and Clover. Zero checkout changes.",
 };
 
 export default function ForRestaurants() {

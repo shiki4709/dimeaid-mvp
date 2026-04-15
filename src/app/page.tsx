@@ -149,8 +149,8 @@ export default function LandingPage() {
                   <li className="flex gap-3">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs" style={{ backgroundColor: "#0D9373", color: "#fff" }}>2</span>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Every donation is verified</p>
-                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Tracked per transaction. Fully auditable. No guesswork.</p>
+                      <p className="text-sm font-semibold" style={{ color: "#111" }}>Every donation is tracked</p>
+                      <p className="mt-0.5 text-sm" style={{ color: "#777" }}>Logged per transaction. Full audit trail. No guesswork.</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -171,9 +171,18 @@ export default function LandingPage() {
       <section style={{ backgroundColor: "#FAFAFA", borderBottom: "1px solid #EBEBEB" }}>
         <div className="mx-auto max-w-[1120px] px-6 py-12 lg:px-12">
           <div className="grid grid-cols-3 gap-8">
-            <ImpactCounter value="142,857" label="Donations verified" color="#0D9373" />
-            <ImpactCounter value="15,714" label="Transactions processed today" color="#0D9373" />
-            <ImpactCounter value="0" label="Checkout modifications required" prefix="" color="#0D9373" />
+            <div className="text-center">
+              <p className="text-2xl font-bold tracking-tight" style={{ color: "#0D9373" }}>$0</p>
+              <p className="mt-1 text-sm" style={{ color: "#888" }}>Cost to your business</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold tracking-tight" style={{ color: "#0D9373" }}>100%</p>
+              <p className="mt-1 text-sm" style={{ color: "#888" }}>Tax-deductible</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold tracking-tight" style={{ color: "#0D9373" }}>0</p>
+              <p className="mt-1 text-sm" style={{ color: "#888" }}>Checkout changes</p>
+            </div>
           </div>
         </div>
       </section>
@@ -196,8 +205,8 @@ export default function LandingPage() {
 
               <div className="mt-10 space-y-8">
                 {([
-                  { n: "01", t: "Connect your checkout system", b: "Works with Toast, Square, Clover, Stripe, and most POS systems. One-time setup, no hardware, no changes to your checkout." },
-                  { n: "02", t: "Every sale generates a donation", b: "Each transaction automatically sends a small donation to a registered food bank. Fully tracked and verifiable." },
+                  { n: "01", t: "Connect your checkout system", b: "Designed for Toast, Square, Clover, Stripe, and most POS systems. One-time setup, no hardware, no changes to your checkout." },
+                  { n: "02", t: "Every sale generates a donation", b: "Each transaction automatically sends a small donation to a registered food bank. Every donation is tracked." },
                   { n: "03", t: "You get a tax receipt every quarter", b: "One consolidated charitable receipt covering all donations. Tax-deductible in Canada and the US. Ready for your accountant." },
                 ] as const).map((step, i) => (
                   <SlideInFromLeft key={step.n} delay={i * 0.15}>
@@ -276,9 +285,9 @@ export default function LandingPage() {
 
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {([
-              { label: "Restaurants & QSR", head: "Every order feeds someone. Your checkout stays the same.", body: "Works with Toast, Square, and Clover. Set it up once, and every order automatically generates a donation. Your customers see no difference.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80", alt: "Restaurant dining" },
+              { label: "Restaurants & QSR", head: "Every order feeds someone. Your checkout stays the same.", body: "Designed for Toast, Square, Clover, and most POS systems. Set it up once, and every order automatically generates a donation. Your customers see no difference.", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80", alt: "Restaurant dining" },
               { label: "Platforms & marketplaces", head: "One integration covers every merchant on your platform.", body: "A single connection embeds giving across all your merchants. Each donation is tracked to the originating business.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&q=80", alt: "Analytics dashboard" },
-              { label: "Grocery & retail", head: "100 stores live in weeks. No checkout disruption.", body: "Connects to NCR, Toshiba, Shopify POS, and custom systems. Runs after the sale is complete, so your lanes are unaffected.", img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&q=80", alt: "Grocery store checkout" },
+              { label: "Grocery & retail", head: "Designed for multi-location rollout. No checkout disruption.", body: "Designed for NCR, Toshiba, Shopify POS, and custom systems. Runs after the sale is complete, so your lanes are unaffected.", img: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&h=340&fit=crop&q=80", alt: "Grocery store checkout" },
             ] as const).map((item, i) => (
               <ScaleIn key={item.label} delay={i * 0.1}>
                 <HoverCard className="overflow-hidden rounded-xl" style={{ backgroundColor: "#fff" }}>
@@ -352,7 +361,7 @@ export default function LandingPage() {
         <div className="relative mx-auto max-w-[1120px]">
           <div className="max-w-[520px]">
             <TextReveal
-              text="One integration. Verified giving. Tax-efficient by default."
+              text="One integration. Tracked giving. Tax-efficient by default."
               tag="h2"
               style={{ fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 700, color: "#fff" }}
             />
